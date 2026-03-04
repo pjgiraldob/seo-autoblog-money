@@ -15,6 +15,14 @@
   </div>
 </div>
 
+## Latest Articles
+
+<div class="cards-grid cards-3 reveal">
+  <a class="feature-card" href="posts/best-ai-automation-tools-for-developers.md"><span class="tag-badge">New</span><h3>Best AI automation tools for developers</h3><p>A modern stack to reduce repetitive coding tasks and boost delivery speed.</p></a>
+  <a class="feature-card" href="posts/best-productivity-tools-powered-by-ai.md"><span class="tag-badge">New</span><h3>Best productivity tools powered by AI</h3><p>Practical tools that improve focus, planning, and execution every day.</p></a>
+  <a class="feature-card" href="posts/top-workflow-automation-tools-in-2026.md"><span class="tag-badge">New</span><h3>Top workflow automation tools in 2026</h3><p>Current automation platforms compared for operations and growth teams.</p></a>
+</div>
+
 ## Featured Articles
 
 <div class="cards-grid cards-3 reveal">
