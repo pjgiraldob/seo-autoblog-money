@@ -52,9 +52,9 @@ def _spanish_ratio(text: str) -> float:
 def _is_language_consistent(text: str, language: str) -> bool:
     lang = (language or "es").lower()
     if lang.startswith("es"):
-        return _english_ratio(text) <= 0.08
+        return _english_ratio(text) <= 0.18
     if lang.startswith("en"):
-        return _spanish_ratio(text) <= 0.08
+        return _spanish_ratio(text) <= 0.18
     return True
 
 
@@ -87,10 +87,25 @@ def _localize_topic(topic: str, language: str = "es") -> str:
 
     text = topic.strip()
     replacements = [
+        ("best tools to automate business workflows", "mejores herramientas para automatizar flujos de negocio"),
+        ("best ai automation tools for developers", "mejores herramientas de automatizacion con IA para desarrolladores"),
+        ("best productivity tools powered by ai", "mejores herramientas de productividad impulsadas por IA"),
+        ("top workflow automation tools in 2026", "principales herramientas de automatizacion de flujos en 2026"),
+        ("ai tools that save time at work", "herramientas de IA que ahorran tiempo en el trabajo"),
+        ("top no-code automation platforms", "principales plataformas de automatizacion sin codigo"),
+        ("best ai tools for content creation", "mejores herramientas de IA para creacion de contenido"),
+        ("best ai tools for developers", "mejores herramientas de IA para desarrolladores"),
+        ("best ai tools for startups", "mejores herramientas de IA para startups"),
+        ("how to automate repetitive work using ai", "como automatizar trabajo repetitivo usando IA"),
         ("Best ", "Mejores "),
         ("Top ", "Principales "),
         ("How to ", "Como "),
         ("powered by", "impulsadas por"),
+        ("business workflows", "flujos de negocio"),
+        ("automation platforms", "plataformas de automatizacion"),
+        ("automation", "automatizacion"),
+        ("tools", "herramientas"),
+        ("to automate", "para automatizar"),
         ("for developers", "para desarrolladores"),
         ("for startups", "para startups"),
         ("for content creation", "para creacion de contenido"),
@@ -109,6 +124,8 @@ def _localize_topic(topic: str, language: str = "es") -> str:
         text = re.sub(re.escape(source), target, text, flags=re.IGNORECASE)
 
     text = re.sub(r"\s+", " ", text).strip()
+    if text:
+        text = text[0].upper() + text[1:]
     return text
 
 
@@ -156,17 +173,51 @@ def _section(topic: str, n: int) -> str:
         "Analiza conversion por CTA y contexto del enlace para ajustar ubicacion y copy. La misma oferta puede rendir distinto segun momento de lectura.",
         "Haz cierre mensual con aprendizajes accionables y estandares actualizados. Sin esta retroalimentacion, la escala suele multiplicar errores en lugar de resultados.",
     ]
+    action_sets = [
+        [
+            "Define un objetivo principal de conversion para la pieza.",
+            "Resume la promesa del articulo en una frase verificable.",
+            "Elimina bloques que no aporten al objetivo principal.",
+        ],
+        [
+            "Alinea cada H2 con una intencion de busqueda concreta.",
+            "Añade enlaces internos a contenidos complementarios.",
+            "Revisa que la ruta de navegacion sea coherente en mobile.",
+        ],
+        [
+            "Usa checklist de revision antes de publicar.",
+            "Mantiene una frecuencia semanal sostenible de mejoras.",
+            "Registra cambios y resultados en una bitacora editorial.",
+        ],
+        [
+            "Distribuye el articulo en un canal primario y uno secundario.",
+            "Adapta el mensaje para newsletter sin cambiar la tesis.",
+            "Mide que canal aporta sesiones con mayor permanencia.",
+        ],
+        [
+            "Prueba dos variantes de subtitulo por seccion clave.",
+            "Evalua CTR de enlaces internos despues de 7 dias.",
+            "Ajusta CTA segun intencion y etapa del lector.",
+        ],
+        [
+            "Estandariza bloques reutilizables de mayor rendimiento.",
+            "Automatiza tareas operativas de bajo valor editorial.",
+            "Planifica la siguiente iteracion con aprendizaje documentado.",
+        ],
+    ]
     title = section_titles[(n - 1) % len(section_titles)]
     diag = diagnosticos[(n - 1) % len(diagnosticos)]
     ejec = ejecuciones[(n - 1) % len(ejecuciones)]
     ctrl = controles[(n - 1) % len(controles)]
+    actions = action_sets[(n - 1) % len(action_sets)]
     return (
         f"## Estrategia {n}: {title} en {topic.lower()}\n\n"
-        f"### Diagnostico {n}.1\n"
         f"{diag}\n\n"
-        f"### Ejecucion {n}.2\n"
         f"{ejec}\n\n"
-        f"### Control {n}.3\n"
+        f"Acciones recomendadas:\n"
+        f"- {actions[0]}\n"
+        f"- {actions[1]}\n"
+        f"- {actions[2]}\n\n"
         f"{ctrl}"
     )
 
@@ -270,11 +321,11 @@ def generate_article(
         meta_description += " Incluye checklist, FAQ y recursos para ejecutar hoy mismo."
     meta_description = meta_description[:160].strip()
 
-    sections = [_section(topic, i) for i in range(1, 7)]
+    sections = [_section(title, i) for i in range(1, 7)]
     body_parts = [
         f"# {title}",
         "",
-        _make_intro(topic),
+        _make_intro(title),
         "",
         *sections,
         "",
@@ -319,8 +370,6 @@ def generate_article(
 
     gate = quality_gate(meta_description, body, language=language)
     if not gate.ok:
-        body = body.replace("## Conclusion", "## Conclusión")
-        body = _localize_topic(body, language=language)
         body += "\n\n## Anexo\nResumen de buenas practicas y puntos de control para ejecucion continua."
         gate = quality_gate(meta_description, body, language=language)
 

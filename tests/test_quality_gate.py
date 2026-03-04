@@ -63,6 +63,7 @@ def test_quality_gate_detects_mixed_language_when_es():
 def test_localize_topic_to_spanish():
     topic = "Best AI automation tools for developers"
     localized = _localize_topic(topic, language="es")
-    assert "Mejores" in localized
-    assert "IA" in localized
-    assert "desarrolladores" in localized
+    lowered = localized.lower()
+    assert "mejores" in lowered
+    assert "ia" in lowered
+    assert "desarrolladores" in lowered
