@@ -94,7 +94,7 @@ No. Es mejor mantener una frecuencia sostenible con calidad consistente.
 ### Como mido si el articulo funciona?
 Evalua posicionamiento, clics organicos, tiempo de lectura y conversion en CTA.
 
-## Conclusion
+## Conclusi?n
 Aplica este marco durante cuatro semanas, registra resultados y optimiza en ciclos cortos. La mejora sostenida llega cuando conviertes cada publicacion en un activo reutilizable.
 
 ### Nota de implementacion

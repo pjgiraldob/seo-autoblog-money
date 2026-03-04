@@ -183,6 +183,7 @@ def generate_posts(root_dir: Path, limit: int, dry_run: bool = False) -> list[di
             tags=tags,
             categories=categories,
             canonical=canonical,
+            language=site_cfg.language,
         )
         quality = article["quality"]
         if not quality.ok:
