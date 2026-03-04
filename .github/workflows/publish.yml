@@ -1,6 +1,8 @@
 ﻿name: publish-pages
 
 on:
+  push:
+    branches: ["main"]
   schedule:
     - cron: "15 6 * * *"
   workflow_dispatch:
