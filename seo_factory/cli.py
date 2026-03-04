@@ -65,7 +65,8 @@ def cmd_build_site(args: argparse.Namespace) -> int:
 def cmd_run(args: argparse.Namespace) -> int:
     root = _root_dir()
     setup_logging(root / "logs")
-    created = generate_posts(root, limit=args.limit, dry_run=args.dry_run)
+    daily_cap = 1 if args.daily else None
+    created = generate_posts(root, limit=args.limit, dry_run=args.dry_run, max_posts_per_day=daily_cap)
     result = build_site_assets(root, dry_run=args.dry_run)
     logger.info("Run complete | posts=%s assets_entries=%s", len(created), result["entries"])
     print(json.dumps({"generated": len(created), **result}, ensure_ascii=False, indent=2))
@@ -82,7 +83,7 @@ def build_parser() -> argparse.ArgumentParser:
     discover.set_defaults(func=cmd_discover)
 
     generate = sub.add_parser("generate", help="Generate SEO posts")
-    generate.add_argument("--limit", type=int, default=3)
+    generate.add_argument("--limit", type=int, default=1)
     generate.add_argument("--dry-run", action="store_true")
     generate.set_defaults(func=cmd_generate)
 
@@ -91,8 +92,8 @@ def build_parser() -> argparse.ArgumentParser:
     build_site.set_defaults(func=cmd_build_site)
 
     run = sub.add_parser("run", help="Run discover->generate->build-site pipeline")
-    run.add_argument("--daily", action="store_true", help="Compatibility flag for scheduled runs")
-    run.add_argument("--limit", type=int, default=3)
+    run.add_argument("--daily", action="store_true", help="Enable editorial mode (max 1 post/day)")
+    run.add_argument("--limit", type=int, default=1)
     run.add_argument("--dry-run", action="store_true")
     run.set_defaults(func=cmd_run)
 

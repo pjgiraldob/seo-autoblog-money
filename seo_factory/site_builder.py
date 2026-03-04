@@ -12,7 +12,7 @@ from .content_generator import generate_article
 from .monetization import recommendations_markdown, select_affiliate_items
 from .seo_tech import build_robots, build_rss, build_sitemap, write_text
 from .social_snippets import make_social_snippets
-from .storage import StateRecord, StateStore, slugify
+from .storage import StateRecord, StateStore, normalize_text, slugify
 from .topic_discovery import discover_topics
 
 logger = logging.getLogger(__name__)
@@ -138,7 +138,22 @@ def _lead_magnet_block() -> str:
     )
 
 
-def generate_posts(root_dir: Path, limit: int, dry_run: bool = False) -> list[dict[str, Any]]:
+def _is_similar_topic(candidate_title: str, existing: list[dict[str, Any]], threshold: float = 0.75) -> bool:
+    candidate_tokens = set(normalize_text(candidate_title).split())
+    if not candidate_tokens:
+        return False
+    for item in existing:
+        title = str(item.get("title", "")).strip()
+        existing_tokens = set(normalize_text(title).split())
+        if not existing_tokens:
+            continue
+        overlap = len(candidate_tokens & existing_tokens) / max(len(candidate_tokens), len(existing_tokens))
+        if overlap >= threshold:
+            return True
+    return False
+
+
+def generate_posts(root_dir: Path, limit: int, dry_run: bool = False, max_posts_per_day: int | None = None) -> list[dict[str, Any]]:
     config_loader = ConfigLoader(root_dir)
     site_cfg = config_loader.load_site()
     sources_cfg = config_loader.load_sources()
@@ -168,7 +183,23 @@ def generate_posts(root_dir: Path, limit: int, dry_run: bool = False) -> list[di
             if line.startswith("NEWSLETTER_EMAIL="):
                 newsletter_email = line.split("=", 1)[1].strip() or None
 
+    today_utc = datetime.now(timezone.utc).date().isoformat()
+    already_today = state.count_posts_on_date(today_utc)
+    if max_posts_per_day is not None and already_today >= max_posts_per_day:
+        logger.info("Daily editorial cap reached: %s/%s posts on %s", already_today, max_posts_per_day, today_utc)
+        return created
+
+    effective_limit = limit
+    if max_posts_per_day is not None:
+        effective_limit = max(0, min(limit, max_posts_per_day - already_today))
+    if effective_limit == 0:
+        logger.info("No generation slots available for %s", today_utc)
+        return created
+
     for topic in topics:
+        if _is_similar_topic(topic.title, existing):
+            logger.info("Skipping similar topic to avoid redundancy: %s", topic.title)
+            continue
         slug = slugify(topic.title)
         if state.has_slug(slug):
             continue
@@ -248,7 +279,7 @@ def generate_posts(root_dir: Path, limit: int, dry_run: bool = False) -> list[di
         created.append(entry)
         existing.append({"title": entry["title"], "path": f"posts/{slug}.md", "tags": tags})
 
-        if len(created) >= limit:
+        if len(created) >= effective_limit:
             break
 
     if not dry_run:

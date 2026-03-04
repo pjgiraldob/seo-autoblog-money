@@ -31,7 +31,7 @@ jobs:
 
       - name: Generate content and SEO assets
         run: |
-          python -m seo_factory run --daily --limit 3
+          python -m seo_factory run --daily --limit 1
           python -m seo_factory build-site
 
       - name: Commit generated changes

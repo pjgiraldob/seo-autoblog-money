@@ -39,10 +39,10 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 
-3. Ejecutar flujo diario local:
+3. Ejecutar flujo diario local (modo editorial):
 
 ```bash
-python -m seo_factory run --daily --limit 3
+python -m seo_factory run --daily --limit 1
 python -m seo_factory build-site
 mkdocs serve
 ```
@@ -51,12 +51,13 @@ mkdocs serve
 
 ```bash
 python -m seo_factory discover --limit 20
-python -m seo_factory generate --limit 3
+python -m seo_factory generate --limit 1
 python -m seo_factory build-site
-python -m seo_factory run --daily --limit 3
+python -m seo_factory run --daily --limit 1
 ```
 
 Opcional: usar `--dry-run` para simular sin escribir en `docs/` ni `state/`.
+Con `--daily` el sistema aplica **tope estricto de 1 articulo por dia (UTC)** usando `state/state.json`.
 
 ## Subir repo y publicar
 

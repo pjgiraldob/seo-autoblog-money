@@ -59,6 +59,16 @@ class StateStore:
         }
         self.save(data)
 
+    def count_posts_on_date(self, date_str: str) -> int:
+        data = self.load()
+        published = data.get("published", {})
+        total = 0
+        for item in published.values():
+            record_date = str(item.get("date", "")).strip()
+            if record_date == date_str:
+                total += 1
+        return total
+
 
 def normalize_text(value: str) -> str:
     raw = unicodedata.normalize("NFKD", value)
