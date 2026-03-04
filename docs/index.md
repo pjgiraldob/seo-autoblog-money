@@ -1,134 +1,160 @@
 ﻿# SEO Autoblog Money
 
-<div class="hero-glass reveal">
-  <p class="eyebrow">SEO + Automatizacion + Conversion</p>
-  <h1>Publica contenido tecnico que rankea, convierte y escala</h1>
-  <p class="hero-subtitle">Una plataforma editorial para equipos y creadores que quieren crecimiento organico sostenible sin depender de workflows manuales.</p>
+<div class="hero-saas reveal">
+  <p class="eyebrow">Modern Tech Platform</p>
+  <h1>Automation, AI Tools & Tech Workflows</h1>
+  <p class="hero-subtitle">Discover the best automation tools, AI platforms and workflows to build faster and work smarter.</p>
   <div class="hero-actions">
-    <a class="btn btn-primary" href="posts/index.md">Ver articulos recientes</a>
-    <a class="btn btn-secondary" href="guides/index.md">Explorar guias</a>
+    <a class="btn btn-primary" href="guides/index.md">Explore Guides</a>
+    <a class="btn btn-secondary" href="reviews/index.md">Recommended Tools</a>
   </div>
-  <div class="hero-metrics">
-    <div><strong>1200+</strong><span>Palabras por articulo</span></div>
-    <div><strong>100%</strong><span>Stack estatico en GitHub Pages</span></div>
-    <div><strong>Daily</strong><span>Pipeline automatizado</span></div>
+  <div class="hero-kpis">
+    <div><strong>Daily</strong><span>Automated publishing</span></div>
+    <div><strong>Long-form</strong><span>1200-1800 words</span></div>
+    <div><strong>SEO-Ready</strong><span>Schema + Sitemap + RSS</span></div>
   </div>
 </div>
 
-## Articulos destacados
+## Featured Articles
 
 <div class="cards-grid cards-3 reveal">
-  <a class="feature-card" href="posts/answer-engine-optimization-vs-traditional-seo-what-marketers-need-to-know.md">
-    <span class="tag-badge">AEO</span>
-    <h3>Answer Engine Optimization vs SEO tradicional</h3>
-    <p>Como adaptar arquitectura y contenido para buscadores generativos sin perder base SEO tecnica.</p>
-  </a>
-  <a class="feature-card" href="posts/how-to-build-an-ai-seo-strategy-that-outlasts-tactics-via-sejournal-kevinindig.md">
-    <span class="tag-badge">Estrategia</span>
-    <h3>Estrategia AI SEO sostenible</h3>
-    <p>Marco para evitar tacticas de corto plazo y construir una ventaja editorial acumulativa.</p>
-  </a>
-  <a class="feature-card" href="posts/the-data-reveals-whats-driving-local-rankings-now-via-sejournal-hethrcampbell.md">
-    <span class="tag-badge">Local SEO</span>
-    <h3>Factores actuales en rankings locales</h3>
-    <p>Prioriza señales con impacto real y elimina ruido en tu roadmap de posicionamiento local.</p>
-  </a>
+  <article class="article-card">
+    <img src="assets/thumb-ai.svg" loading="lazy" alt="AI SEO Strategy thumbnail">
+    <div class="article-card-body">
+      <span class="tag-badge">AI SEO</span>
+      <h3><a href="posts/how-to-build-an-ai-seo-strategy-that-outlasts-tactics-via-sejournal-kevinindig.md">How to Build an AI SEO Strategy</a></h3>
+      <p>Build resilient growth loops that survive algorithm shifts and platform cycles.</p>
+      <div class="meta-row"><span>10 min read</span><span>Strategy</span></div>
+    </div>
+  </article>
+
+  <article class="article-card">
+    <img src="assets/thumb-local.svg" loading="lazy" alt="Local rankings data thumbnail">
+    <div class="article-card-body">
+      <span class="tag-badge">Local SEO</span>
+      <h3><a href="posts/the-data-reveals-whats-driving-local-rankings-now-via-sejournal-hethrcampbell.md">What Drives Local Rankings Now</a></h3>
+      <p>A focused summary of ranking factors that matter most for local visibility in 2026.</p>
+      <div class="meta-row"><span>8 min read</span><span>Data</span></div>
+    </div>
+  </article>
+
+  <article class="article-card">
+    <img src="assets/thumb-geo.svg" loading="lazy" alt="AEO vs SEO thumbnail">
+    <div class="article-card-body">
+      <span class="tag-badge">AEO</span>
+      <h3><a href="posts/answer-engine-optimization-vs-traditional-seo-what-marketers-need-to-know.md">AEO vs Traditional SEO</a></h3>
+      <p>How to optimize for AI answer engines while preserving core technical SEO fundamentals.</p>
+      <div class="meta-row"><span>11 min read</span><span>Future-proofing</span></div>
+    </div>
+  </article>
 </div>
 
-## Recomendaciones de herramientas
+## Recommended Tools
 
 <div class="cards-grid cards-3 reveal">
   <article class="tool-card">
-    <div class="tool-header">
-      <div class="tool-logo">KW</div>
+    <div class="tool-head">
+      <img class="tool-icon" src="assets/logo-kw.svg" loading="lazy" alt="Keyword Suite logo">
       <div>
-        <h3>Research Suite</h3>
-        <p>Descubrimiento de keywords y clusters</p>
+        <h3>Keyword Suite Pro</h3>
+        <p>Semantic keyword research for modern search.</p>
       </div>
     </div>
     <ul>
-      <li>Priorizacion por intencion</li>
-      <li>Agrupacion semantica por cluster</li>
-      <li>Exportacion para calendario editorial</li>
+      <li>Entity-based keyword clusters</li>
+      <li>Opportunity scoring by intent</li>
+      <li>Content brief export</li>
     </ul>
-    <a class="btn btn-primary" href="reviews/index.md">Try it</a>
-    <span class="trust-badge">Seleccion editorial</span>
+    <div class="tool-actions">
+      <a class="btn btn-primary" href="reviews/index.md">Try it</a>
+      <span class="trust-badge">Trusted by SEO teams</span>
+    </div>
   </article>
 
   <article class="tool-card">
-    <div class="tool-header">
-      <div class="tool-logo">TC</div>
+    <div class="tool-head">
+      <img class="tool-icon" src="assets/logo-audit.svg" loading="lazy" alt="Audit Cloud logo">
       <div>
-        <h3>Tech Audit Cloud</h3>
-        <p>Auditoria tecnica orientada a negocio</p>
+        <h3>Audit Cloud</h3>
+        <p>Technical SEO quality control at scale.</p>
       </div>
     </div>
     <ul>
-      <li>Errores rastreables por prioridad</li>
-      <li>Monitoreo de Core Web Vitals</li>
-      <li>Reporte para stakeholders</li>
+      <li>Crawl issue prioritization</li>
+      <li>Core Web Vitals tracking</li>
+      <li>Automated reports</li>
     </ul>
-    <a class="btn btn-primary" href="reviews/index.md">Try it</a>
-    <span class="trust-badge">Confiable para equipos</span>
+    <div class="tool-actions">
+      <a class="btn btn-primary" href="reviews/index.md">Try it</a>
+      <span class="trust-badge">Conversion-safe recommendations</span>
+    </div>
   </article>
 
   <article class="tool-card">
-    <div class="tool-header">
-      <div class="tool-logo">CR</div>
+    <div class="tool-head">
+      <img class="tool-icon" src="assets/logo-content.svg" loading="lazy" alt="Content Radar logo">
       <div>
         <h3>Content Radar</h3>
-        <p>Pipeline de contenido con IA asistida</p>
+        <p>Workflow automation for editorial pipelines.</p>
       </div>
     </div>
     <ul>
-      <li>Briefs listos para publicar</li>
-      <li>Control de enlazado interno</li>
-      <li>Alertas de contenido desactualizado</li>
+      <li>Brief templates and governance</li>
+      <li>Internal linking suggestions</li>
+      <li>Freshness alerts</li>
     </ul>
-    <a class="btn btn-primary" href="reviews/index.md">Try it</a>
-    <span class="trust-badge">Apto para creadores</span>
+    <div class="tool-actions">
+      <a class="btn btn-primary" href="reviews/index.md">Try it</a>
+      <span class="trust-badge">Editorially reviewed</span>
+    </div>
   </article>
 </div>
 
-## Guias de automatizacion
+## Automation Guides
 
 <div class="cards-grid cards-2 reveal">
   <a class="feature-card" href="guides/guia-pilar-seo-para-creadores.md">
-    <span class="tag-badge">Pilar</span>
-    <h3>Guia pilar SEO para creadores</h3>
-    <p>Base evergreen para contenidos, arquitectura y conversion en proyectos editoriales.</p>
+    <span class="tag-badge">Pillar</span>
+    <h3>SEO System Blueprint</h3>
+    <p>Architecture, content, and conversion foundations for scalable organic growth.</p>
   </a>
   <a class="feature-card" href="guides/index.md">
-    <span class="tag-badge">Frameworks</span>
-    <h3>Playbooks de automatizacion</h3>
-    <p>Workflows para discovery, generacion, interlinking y publicacion continua en MkDocs.</p>
+    <span class="tag-badge">Playbooks</span>
+    <h3>Execution Frameworks</h3>
+    <p>Discover, generate, optimize and distribute with repeatable workflows.</p>
   </a>
-</div>
-
-## Comparativa rapida de enfoque
-
-| Enfoque | Resultado SEO | Escalabilidad | Riesgo |
-|---|---|---|---|
-| Publicacion manual sin sistema | Variable | Baja | Alto |
-| Automatizacion con QA y SEO tecnico | Alto y estable | Alta | Controlado |
-| Publicacion masiva sin calidad | Bajo a medio | Alta | Muy alto |
-
-<div class="highlight-block reveal">
-  <strong>Tip estrategico:</strong> combina automatizacion con control editorial estricto. La ventaja sostenible viene de calidad + consistencia, no de volumen aislado.
 </div>
 
 ## Newsletter
 
 <div class="newsletter-cta reveal">
-  <h2>Recibe growth briefs semanales</h2>
-  <p>Te enviamos estrategias accionables, frameworks SEO y oportunidades de monetizacion sin spam.</p>
-  <div class="hero-actions">
-    <a class="btn btn-primary" href="newsletter/index.md">Suscribirme</a>
-    <a class="btn btn-secondary" href="assets/lead-magnet.md">Descargar recurso gratis</a>
-  </div>
+  <h2>Get weekly automation and SEO playbooks</h2>
+  <p>Actionable ideas for AI workflows, growth loops and high-conversion content systems.</p>
+  <form class="newsletter-form" action="mailto:?subject=Newsletter%20Signup" method="post" enctype="text/plain">
+    <input type="email" name="email" placeholder="you@company.com" required>
+    <button type="submit" class="btn btn-primary">Join Newsletter</button>
+  </form>
 </div>
 
 <footer class="site-footer reveal">
-  <p><strong>SEO Autoblog Money</strong></p>
-  <p>Infraestructura editorial moderna para equipos de contenido tecnico.</p>
+  <div class="footer-grid">
+    <div>
+      <h4>Categories</h4>
+      <a href="posts/index.md">Articles</a>
+      <a href="guides/index.md">Automation Guides</a>
+      <a href="reviews/index.md">Tools</a>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <a href="assets/lead-magnet.md">Lead Magnet</a>
+      <a href="newsletter/index.md">Newsletter</a>
+      <a href="components/ui-kit.md">UI Kit</a>
+    </div>
+    <div>
+      <h4>About</h4>
+      <a href="https://github.com/pjgiraldob/seo-autoblog-money">GitHub</a>
+      <a href="https://x.com">X</a>
+      <a href="https://linkedin.com">LinkedIn</a>
+    </div>
+  </div>
 </footer>
