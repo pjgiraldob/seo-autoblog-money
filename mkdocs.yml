@@ -2,35 +2,31 @@
 site_url: "https://pjgiraldob.github.io/seo-autoblog-money/"
 repo_name: seo-autoblog-money
 repo_url: https://github.com/pjgiraldob/seo-autoblog-money
-site_description: Modern tech platform for automation, AI tools, and SEO workflows.
+site_description: Plataforma SEO automatizada con contenido evergreen, guias de automatizacion y recomendaciones de herramientas.
 site_author: SEO Autoblog Money
 use_directory_urls: true
 
 theme:
   name: material
-  language: en
+  language: es
   custom_dir: docs/overrides
-  logo: assets/brand-mark.svg
-  favicon: assets/brand-mark.svg
+  logo: assets/og-cover.svg
+  favicon: assets/og-cover.svg
   font:
-    text: Inter
+    text: Plus Jakarta Sans
     code: JetBrains Mono
   features:
     - navigation.instant
     - navigation.instant.progress
     - navigation.sections
-    - navigation.path
     - navigation.top
     - navigation.footer
     - navigation.indexes
-    - toc.follow
     - content.code.copy
     - content.code.annotate
     - content.tabs.link
     - content.tooltips
-    - search.suggest
-    - search.highlight
-    - search.share
+    - toc.follow
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -38,36 +34,34 @@ theme:
       accent: custom
       toggle:
         icon: material/weather-night
-        name: Switch to dark mode
+        name: Activar modo oscuro
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: custom
       accent: custom
       toggle:
         icon: material/weather-sunny
-        name: Switch to light mode
+        name: Activar modo claro
 
 plugins:
-  - search:
-      separator: '[\\s\\-]+'
+  - search
 
 nav:
-  - Home: index.md
-  - Articles:
-    - Overview: posts/index.md
-  - Automation Guides:
+  - Inicio: index.md
+  - Articulos:
+    - Panorama: posts/index.md
+  - Guias:
     - Hub: guides/index.md
-    - Pillar Guide: guides/guia-pilar-seo-para-creadores.md
-  - Recommended Tools:
-    - Reviews: reviews/index.md
+    - Guia Pilar: guides/guia-pilar-seo-para-creadores.md
+  - Reviews:
+    - Herramientas: reviews/index.md
   - Newsletter: newsletter/index.md
 
 extra:
   generator: false
   social_image: assets/og-cover.svg
-  x_url: https://x.com
-  linkedin_url: https://linkedin.com
-  github_url: https://github.com/pjgiraldob/seo-autoblog-money
+  homepage_headline: SEO de alto rendimiento para sitios automatizados
+  homepage_subtitle: Sistema editorial orientado a crecimiento organico, conversion y monetizacion inteligente.
 
 extra_css:
   - assets/styles.css

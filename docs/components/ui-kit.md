@@ -1,15 +1,13 @@
-﻿# UI Kit
+﻿# UI Components
 
-Reusable components available in this theme layer:
+Esta pagina documenta componentes reutilizables del sistema visual:
 
-- Hero sections
-- Feature cards
-- Article cards with image + meta
-- Tool recommendation cards
-- Newsletter CTA block
-- Comparison table styling
-- Tag badges
-- Callout/highlight block
-- Share buttons (auto-injected on post pages)
-- Reading progress bar
-- Reveal-on-scroll micro animations
+- `feature-card`
+- `tool-card`
+- `tag-badge`
+- `highlight-block`
+- `newsletter-cta`
+- `btn btn-primary`
+- `btn btn-secondary`
+
+Todos los componentes se pueden usar en Markdown con bloques HTML para mantener compatibilidad con MkDocs Material.

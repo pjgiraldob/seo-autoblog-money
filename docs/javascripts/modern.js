@@ -1,76 +1,45 @@
 ﻿(function () {
-  const qs = (s, p = document) => p.querySelector(s);
-
-  function revealOnScroll() {
+  const revealElements = () => {
     const nodes = document.querySelectorAll('.reveal');
-    if (!nodes.length) return;
-
-    const io = new IntersectionObserver(
+    const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
-            io.unobserve(entry.target);
+            observer.unobserve(entry.target);
           }
         });
       },
       { threshold: 0.12 }
     );
+    nodes.forEach((node) => observer.observe(node));
+  };
 
-    nodes.forEach((n) => io.observe(n));
-  }
-
-  function readingProgress() {
-    const bar = qs('.reading-progress__bar');
+  const readingProgress = () => {
+    const bar = document.querySelector('.reading-progress__bar');
     if (!bar) return;
 
     const update = () => {
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      const val = max > 0 ? Math.min((window.scrollY / max) * 100, 100) : 0;
-      bar.style.width = val + '%';
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? Math.min((scrollTop / docHeight) * 100, 100) : 0;
+      bar.style.width = progress + '%';
     };
 
     update();
     window.addEventListener('scroll', update, { passive: true });
     window.addEventListener('resize', update);
-  }
+  };
 
-  function enhanceArticlePage() {
-    if (!window.location.pathname.includes('/posts/')) return;
+  const styleArticlePage = () => {
+    if (window.location.pathname.includes('/posts/')) {
+      document.body.classList.add('page-post');
+    }
+  };
 
-    const content = qs('.md-content__inner');
-    if (!content) return;
-
-    const share = document.createElement('div');
-    share.className = 'share-row reveal';
-
-    const title = document.title;
-    const url = window.location.href;
-
-    share.innerHTML = [
-      '<strong>Share:</strong>',
-      `<a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}" target="_blank" rel="noopener">X</a>`,
-      `<a href="https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}" target="_blank" rel="noopener">LinkedIn</a>`,
-      `<a href="https://www.reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}" target="_blank" rel="noopener">Reddit</a>`
-    ].join('');
-
-    content.appendChild(share);
-  }
-
-  function newsletterFormRouting() {
-    const form = qs('.newsletter-form');
-    if (!form) return;
-
-    form.addEventListener('submit', function () {
-      const input = qs('input[type="email"]', form);
-      if (!input || !input.value) return;
-    });
-  }
-
-  document.addEventListener('DOMContentLoaded', function () {
-    revealOnScroll();
+  document.addEventListener('DOMContentLoaded', () => {
+    revealElements();
     readingProgress();
-    enhanceArticlePage();
-    newsletterFormRouting();
+    styleArticlePage();
   });
 })();

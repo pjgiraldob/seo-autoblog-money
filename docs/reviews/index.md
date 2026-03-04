@@ -1,70 +1,32 @@
-﻿# Recommended Tools
+﻿# Reviews de herramientas
 
 <div class="page-intro reveal">
-  <p class="eyebrow">Affiliate-safe recommendations</p>
-  <h1>Curated tools for builders and growth teams</h1>
-  <p>Designed for trust and utility: product-led cards, transparent recommendations, and clear decision criteria.</p>
+  <p class="eyebrow">Monetizacion con confianza</p>
+  <h1>Herramientas recomendadas para SEO y automatizacion</h1>
+  <p>Selecciones editoriales pensadas para productividad, crecimiento organico y conversion. Sin hype, con criterio.</p>
 </div>
 
 <div class="cards-grid cards-3 reveal">
   <article class="tool-card">
-    <div class="tool-head">
-      <img class="tool-icon" src="../assets/logo-kw.svg" loading="lazy" alt="Keyword Suite Pro logo">
-      <div>
-        <h3>Keyword Suite Pro</h3>
-        <p>Intelligent keyword and topic mapping.</p>
-      </div>
-    </div>
-    <ul>
-      <li>Semantic clusters</li>
-      <li>Intent scoring</li>
-      <li>SERP shift alerts</li>
-    </ul>
-    <div class="tool-actions">
-      <a class="btn btn-primary" href="https://example.com/afiliado/curso-seo">Try it</a>
-      <span class="trust-badge">Trusted recommendation</span>
-    </div>
+    <div class="tool-header"><div class="tool-logo">KW</div><div><h3>Research Suite</h3><p>Keyword intelligence</p></div></div>
+    <ul><li>Clusters por entidad</li><li>Oportunidades low competition</li><li>Exportable a flujo editorial</li></ul>
+    <a class="btn btn-primary" href="https://example.com/afiliado/curso-seo">Try it</a>
+    <span class="trust-badge">Affiliate disclosure activo</span>
   </article>
-
   <article class="tool-card">
-    <div class="tool-head">
-      <img class="tool-icon" src="../assets/logo-audit.svg" loading="lazy" alt="Audit Cloud logo">
-      <div>
-        <h3>Audit Cloud</h3>
-        <p>Technical SEO governance for teams.</p>
-      </div>
-    </div>
-    <ul>
-      <li>Crawl diagnostics</li>
-      <li>Vitals scorecards</li>
-      <li>Executive reporting</li>
-    </ul>
-    <div class="tool-actions">
-      <a class="btn btn-primary" href="https://example.com/afiliado/auditoria-tecnica">Try it</a>
-      <span class="trust-badge">High-conversion fit</span>
-    </div>
+    <div class="tool-header"><div class="tool-logo">AU</div><div><h3>Audit Utility</h3><p>Technical SEO QA</p></div></div>
+    <ul><li>Errores por impacto</li><li>Monitoreo de rastreo</li><li>Reporte semanal automatizado</li></ul>
+    <a class="btn btn-primary" href="https://example.com/afiliado/auditoria-tecnica">Try it</a>
+    <span class="trust-badge">Transparencia editorial</span>
   </article>
-
   <article class="tool-card">
-    <div class="tool-head">
-      <img class="tool-icon" src="../assets/logo-content.svg" loading="lazy" alt="Content Radar logo">
-      <div>
-        <h3>Content Radar</h3>
-        <p>Editorial system with workflow automation.</p>
-      </div>
-    </div>
-    <ul>
-      <li>Reusable briefs</li>
-      <li>Internal links helper</li>
-      <li>Freshness reminders</li>
-    </ul>
-    <div class="tool-actions">
-      <a class="btn btn-primary" href="https://example.com/afiliado/calendario-editorial">Try it</a>
-      <span class="trust-badge">Transparent affiliate policy</span>
-    </div>
+    <div class="tool-header"><div class="tool-logo">CP</div><div><h3>Content Planner</h3><p>Execution workflow</p></div></div>
+    <ul><li>Briefs reutilizables</li><li>Control de interlinks</li><li>Roadmap semanal</li></ul>
+    <a class="btn btn-primary" href="https://example.com/afiliado/calendario-editorial">Try it</a>
+    <span class="trust-badge">Elegido por practicidad</span>
   </article>
 </div>
 
 <div class="highlight-block reveal">
-  <strong>Disclosure:</strong> some links may generate a commission at no additional cost to you.
+  <strong>Disclosure:</strong> algunos enlaces de esta pagina pueden generar comision sin costo extra para ti.
 </div>
