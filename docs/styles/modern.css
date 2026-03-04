@@ -77,6 +77,24 @@ body {
   margin-bottom: 0.65rem;
 }
 
+.md-typeset a {
+  color: #5b8cff;
+  text-decoration-thickness: 2px;
+}
+
+[data-md-color-scheme="slate"] .md-typeset a {
+  color: #7dd3fc;
+}
+
+.md-typeset a:hover {
+  color: #8a63ff;
+  text-decoration: underline;
+}
+
+[data-md-color-scheme="slate"] .md-typeset a:hover {
+  color: #c4b5fd;
+}
+
 .md-typeset h2 {
   font-size: clamp(1.45rem, 2.4vw, 2.2rem);
   margin-top: 2.4rem;

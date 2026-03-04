@@ -5,8 +5,8 @@
   <h1>Automation, AI Tools & Tech Workflows</h1>
   <p class="hero-subtitle">Discover the best automation tools, AI platforms and workflows to build faster and work smarter.</p>
   <div class="hero-actions">
-    <a class="btn btn-primary" href="guides/index.md">Explore Guides</a>
-    <a class="btn btn-secondary" href="reviews/index.md">Recommended Tools</a>
+    <a class="btn btn-primary" href="guides/">Explore Guides</a>
+    <a class="btn btn-secondary" href="reviews/">Recommended Tools</a>
   </div>
   <div class="hero-kpis">
     <div><strong>Daily</strong><span>Automated publishing</span></div>
@@ -18,9 +18,9 @@
 ## Latest Articles
 
 <div class="cards-grid cards-3 reveal">
-  <a class="feature-card" href="posts/best-ai-automation-tools-for-developers.md"><span class="tag-badge">New</span><h3>Best AI automation tools for developers</h3><p>A modern stack to reduce repetitive coding tasks and boost delivery speed.</p></a>
-  <a class="feature-card" href="posts/best-productivity-tools-powered-by-ai.md"><span class="tag-badge">New</span><h3>Best productivity tools powered by AI</h3><p>Practical tools that improve focus, planning, and execution every day.</p></a>
-  <a class="feature-card" href="posts/top-workflow-automation-tools-in-2026.md"><span class="tag-badge">New</span><h3>Top workflow automation tools in 2026</h3><p>Current automation platforms compared for operations and growth teams.</p></a>
+  <a class="feature-card" href="posts/best-ai-automation-tools-for-developers/"><span class="tag-badge">New</span><h3>Best AI automation tools for developers</h3><p>A modern stack to reduce repetitive coding tasks and boost delivery speed.</p></a>
+  <a class="feature-card" href="posts/best-productivity-tools-powered-by-ai/"><span class="tag-badge">New</span><h3>Best productivity tools powered by AI</h3><p>Practical tools that improve focus, planning, and execution every day.</p></a>
+  <a class="feature-card" href="posts/top-workflow-automation-tools-in-2026/"><span class="tag-badge">New</span><h3>Top workflow automation tools in 2026</h3><p>Current automation platforms compared for operations and growth teams.</p></a>
 </div>
 
 ## Featured Articles
@@ -30,7 +30,7 @@
     <img src="assets/thumb-ai.svg" loading="lazy" alt="AI SEO Strategy thumbnail">
     <div class="article-card-body">
       <span class="tag-badge">AI SEO</span>
-      <h3><a href="posts/how-to-build-an-ai-seo-strategy-that-outlasts-tactics-via-sejournal-kevinindig.md">How to Build an AI SEO Strategy</a></h3>
+      <h3><a href="posts/how-to-build-an-ai-seo-strategy-that-outlasts-tactics-via-sejournal-kevinindig/">How to Build an AI SEO Strategy</a></h3>
       <p>Build resilient growth loops that survive algorithm shifts and platform cycles.</p>
       <div class="meta-row"><span>10 min read</span><span>Strategy</span></div>
     </div>
@@ -40,7 +40,7 @@
     <img src="assets/thumb-local.svg" loading="lazy" alt="Local rankings data thumbnail">
     <div class="article-card-body">
       <span class="tag-badge">Local SEO</span>
-      <h3><a href="posts/the-data-reveals-whats-driving-local-rankings-now-via-sejournal-hethrcampbell.md">What Drives Local Rankings Now</a></h3>
+      <h3><a href="posts/the-data-reveals-whats-driving-local-rankings-now-via-sejournal-hethrcampbell/">What Drives Local Rankings Now</a></h3>
       <p>A focused summary of ranking factors that matter most for local visibility in 2026.</p>
       <div class="meta-row"><span>8 min read</span><span>Data</span></div>
     </div>
@@ -50,7 +50,7 @@
     <img src="assets/thumb-geo.svg" loading="lazy" alt="AEO vs SEO thumbnail">
     <div class="article-card-body">
       <span class="tag-badge">AEO</span>
-      <h3><a href="posts/answer-engine-optimization-vs-traditional-seo-what-marketers-need-to-know.md">AEO vs Traditional SEO</a></h3>
+      <h3><a href="posts/answer-engine-optimization-vs-traditional-seo-what-marketers-need-to-know/">AEO vs Traditional SEO</a></h3>
       <p>How to optimize for AI answer engines while preserving core technical SEO fundamentals.</p>
       <div class="meta-row"><span>11 min read</span><span>Future-proofing</span></div>
     </div>
@@ -74,7 +74,7 @@
       <li>Content brief export</li>
     </ul>
     <div class="tool-actions">
-      <a class="btn btn-primary" href="reviews/index.md">Try it</a>
+      <a class="btn btn-primary" href="reviews/">Try it</a>
       <span class="trust-badge">Trusted by SEO teams</span>
     </div>
   </article>
@@ -93,7 +93,7 @@
       <li>Automated reports</li>
     </ul>
     <div class="tool-actions">
-      <a class="btn btn-primary" href="reviews/index.md">Try it</a>
+      <a class="btn btn-primary" href="reviews/">Try it</a>
       <span class="trust-badge">Conversion-safe recommendations</span>
     </div>
   </article>
@@ -112,7 +112,7 @@
       <li>Freshness alerts</li>
     </ul>
     <div class="tool-actions">
-      <a class="btn btn-primary" href="reviews/index.md">Try it</a>
+      <a class="btn btn-primary" href="reviews/">Try it</a>
       <span class="trust-badge">Editorially reviewed</span>
     </div>
   </article>
@@ -121,12 +121,12 @@
 ## Automation Guides
 
 <div class="cards-grid cards-2 reveal">
-  <a class="feature-card" href="guides/guia-pilar-seo-para-creadores.md">
+  <a class="feature-card" href="guides/guia-pilar-seo-para-creadores/">
     <span class="tag-badge">Pillar</span>
     <h3>SEO System Blueprint</h3>
     <p>Architecture, content, and conversion foundations for scalable organic growth.</p>
   </a>
-  <a class="feature-card" href="guides/index.md">
+  <a class="feature-card" href="guides/">
     <span class="tag-badge">Playbooks</span>
     <h3>Execution Frameworks</h3>
     <p>Discover, generate, optimize and distribute with repeatable workflows.</p>
@@ -148,15 +148,15 @@
   <div class="footer-grid">
     <div>
       <h4>Categories</h4>
-      <a href="posts/index.md">Articles</a>
-      <a href="guides/index.md">Automation Guides</a>
-      <a href="reviews/index.md">Tools</a>
+      <a href="posts/">Articles</a>
+      <a href="guides/">Automation Guides</a>
+      <a href="reviews/">Tools</a>
     </div>
     <div>
       <h4>Resources</h4>
-      <a href="assets/lead-magnet.md">Lead Magnet</a>
-      <a href="newsletter/index.md">Newsletter</a>
-      <a href="components/ui-kit.md">UI Kit</a>
+      <a href="assets/lead-magnet/">Lead Magnet</a>
+      <a href="newsletter/">Newsletter</a>
+      <a href="components/ui-kit/">UI Kit</a>
     </div>
     <div>
       <h4>About</h4>
@@ -166,3 +166,4 @@
     </div>
   </div>
 </footer>
+

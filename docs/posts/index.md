@@ -9,16 +9,16 @@
 ## Latest AI Automation Topics
 
 <div class="cards-grid cards-3 reveal">
-  <a class="feature-card" href="best-ai-automation-tools-for-developers.md"><span class="tag-badge">Developers</span><h3>Best AI automation tools for developers</h3><p>Tools and workflows to speed up shipping and reduce repetitive engineering tasks.</p></a>
-  <a class="feature-card" href="best-productivity-tools-powered-by-ai.md"><span class="tag-badge">Productivity</span><h3>Best productivity tools powered by AI</h3><p>High-impact apps and systems to improve personal and team output.</p></a>
-  <a class="feature-card" href="top-workflow-automation-tools-in-2026.md"><span class="tag-badge">2026</span><h3>Top workflow automation tools in 2026</h3><p>Updated stack options for modern operations and growth workflows.</p></a>
-  <a class="feature-card" href="best-tools-to-automate-business-workflows.md"><span class="tag-badge">Business</span><h3>Best tools to automate business workflows</h3><p>Automation stack for marketing, ops, and internal process efficiency.</p></a>
-  <a class="feature-card" href="ai-tools-that-save-time-at-work.md"><span class="tag-badge">Time-saving</span><h3>AI tools that save time at work</h3><p>Practical AI assistants that remove repetitive work from your week.</p></a>
-  <a class="feature-card" href="top-no-code-automation-platforms.md"><span class="tag-badge">No-code</span><h3>Top no-code automation platforms</h3><p>Platform comparison for non-developers and cross-functional teams.</p></a>
-  <a class="feature-card" href="best-ai-tools-for-content-creation.md"><span class="tag-badge">Content</span><h3>Best AI tools for content creation</h3><p>Creation, editing and optimization workflows for consistent output.</p></a>
-  <a class="feature-card" href="best-ai-tools-for-developers.md"><span class="tag-badge">Dev Stack</span><h3>Best AI tools for developers</h3><p>Daily-use assistants for coding, debugging and documentation.</p></a>
-  <a class="feature-card" href="best-ai-tools-for-startups.md"><span class="tag-badge">Startups</span><h3>Best AI tools for startups</h3><p>Lean stack recommendations for fast-moving startup teams.</p></a>
-  <a class="feature-card" href="how-to-automate-repetitive-work-using-ai.md"><span class="tag-badge">How-to</span><h3>How to automate repetitive work using AI</h3><p>Step-by-step framework to identify, test and scale automations.</p></a>
+  <a class="feature-card" href="best-ai-automation-tools-for-developers/"><span class="tag-badge">Developers</span><h3>Best AI automation tools for developers</h3><p>Tools and workflows to speed up shipping and reduce repetitive engineering tasks.</p></a>
+  <a class="feature-card" href="best-productivity-tools-powered-by-ai/"><span class="tag-badge">Productivity</span><h3>Best productivity tools powered by AI</h3><p>High-impact apps and systems to improve personal and team output.</p></a>
+  <a class="feature-card" href="top-workflow-automation-tools-in-2026/"><span class="tag-badge">2026</span><h3>Top workflow automation tools in 2026</h3><p>Updated stack options for modern operations and growth workflows.</p></a>
+  <a class="feature-card" href="best-tools-to-automate-business-workflows/"><span class="tag-badge">Business</span><h3>Best tools to automate business workflows</h3><p>Automation stack for marketing, ops, and internal process efficiency.</p></a>
+  <a class="feature-card" href="ai-tools-that-save-time-at-work/"><span class="tag-badge">Time-saving</span><h3>AI tools that save time at work</h3><p>Practical AI assistants that remove repetitive work from your week.</p></a>
+  <a class="feature-card" href="top-no-code-automation-platforms/"><span class="tag-badge">No-code</span><h3>Top no-code automation platforms</h3><p>Platform comparison for non-developers and cross-functional teams.</p></a>
+  <a class="feature-card" href="best-ai-tools-for-content-creation/"><span class="tag-badge">Content</span><h3>Best AI tools for content creation</h3><p>Creation, editing and optimization workflows for consistent output.</p></a>
+  <a class="feature-card" href="best-ai-tools-for-developers/"><span class="tag-badge">Dev Stack</span><h3>Best AI tools for developers</h3><p>Daily-use assistants for coding, debugging and documentation.</p></a>
+  <a class="feature-card" href="best-ai-tools-for-startups/"><span class="tag-badge">Startups</span><h3>Best AI tools for startups</h3><p>Lean stack recommendations for fast-moving startup teams.</p></a>
+  <a class="feature-card" href="how-to-automate-repetitive-work-using-ai/"><span class="tag-badge">How-to</span><h3>How to automate repetitive work using AI</h3><p>Step-by-step framework to identify, test and scale automations.</p></a>
 </div>
 
 ## Full Article Library
@@ -46,3 +46,4 @@
 - [Was Windows 10's lack of overlapping windows a legal or technical matter?](was-windows-10s-lack-of-overlapping-windows-a-legal-or-a-technical-matter.md)
 - [Why most enterprise SEO operating models are structurally broken](why-most-enterprise-seo-operating-models-are-structurally-broken-via-sejournal-billhunt.md)
 - [Yoast SEO's new schema aggregator improves entity disambiguation](yoast-seos-new-schema-aggregator-improves-entity-disambiguation-via-sejournal-martinibuster.md)
+
