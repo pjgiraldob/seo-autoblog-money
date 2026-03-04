@@ -1,28 +1,92 @@
 ﻿site_name: SEO Autoblog Money
-site_url: ""
+site_url: "https://pjgiraldob.github.io/seo-autoblog-money/"
 repo_name: seo-autoblog-money
-site_description: Blog SEO automatizado con monetizacion de afiliados
-site_author: Tu Nombre
+repo_url: https://github.com/pjgiraldob/seo-autoblog-money
+site_description: Plataforma SEO automatizada con contenido evergreen, guias de automatizacion y recomendaciones de herramientas.
+site_author: SEO Autoblog Money
 use_directory_urls: true
 
 theme:
   name: material
   language: es
+  custom_dir: docs/overrides
+  logo: assets/og-cover.svg
+  favicon: assets/og-cover.svg
+  font:
+    text: Plus Jakarta Sans
+    code: JetBrains Mono
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - content.tooltips
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Activar modo oscuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Activar modo claro
 
 plugins:
   - search
 
 nav:
   - Inicio: index.md
+  - Articulos:
+    - Panorama: posts/index.md
+  - Guias:
+    - Hub: guides/index.md
+    - Guia Pilar: guides/guia-pilar-seo-para-creadores.md
+  - Reviews:
+    - Herramientas: reviews/index.md
   - Newsletter: newsletter/index.md
 
 extra:
   generator: false
+  social_image: assets/og-cover.svg
+  homepage_headline: SEO de alto rendimiento para sitios automatizados
+  homepage_subtitle: Sistema editorial orientado a crecimiento organico, conversion y monetizacion inteligente.
 
 extra_css:
   - assets/styles.css
+  - styles/modern.css
+
+extra_javascript:
+  - javascripts/modern.js
 
 markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
   - tables
   - toc:
       permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
