@@ -1,0 +1,13 @@
+﻿# Dependencias de ejecucion
+PyYAML==6.0.2
+requests==2.32.3
+feedparser==6.0.11
+pytrends==4.9.2
+python-dateutil==2.9.0.post0
+
+# Sitio
+mkdocs==1.6.1
+mkdocs-material==9.6.8
+
+# Testing
+pytest==8.3.5

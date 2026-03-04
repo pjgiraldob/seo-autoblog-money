@@ -1,0 +1,12 @@
+﻿__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+.env
+site/
+
+# runtime outputs
+logs/*.log
+outputs/social/*/
+outputs/discovered_topics.json
+outputs/last_generated.json

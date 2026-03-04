@@ -1,0 +1,5 @@
+﻿/* Estilos basicos y ligeros para personalizar Material */
+:root {
+  --md-primary-fg-color: #0d6e6e;
+  --md-accent-fg-color: #d97706;
+}

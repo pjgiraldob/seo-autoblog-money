@@ -1,0 +1,28 @@
+﻿site_name: SEO Autoblog Money
+site_url: ""
+repo_name: seo-autoblog-money
+site_description: Blog SEO automatizado con monetizacion de afiliados
+site_author: Tu Nombre
+use_directory_urls: true
+
+theme:
+  name: material
+  language: es
+
+plugins:
+  - search
+
+nav:
+  - Inicio: index.md
+  - Newsletter: newsletter/index.md
+
+extra:
+  generator: false
+
+extra_css:
+  - assets/styles.css
+
+markdown_extensions:
+  - tables
+  - toc:
+      permalink: true

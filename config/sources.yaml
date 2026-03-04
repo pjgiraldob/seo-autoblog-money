@@ -1,0 +1,19 @@
+﻿rss_feeds:
+  - "https://hnrss.org/frontpage"
+  - "https://www.searchenginejournal.com/feed/"
+  - "https://blog.hubspot.com/marketing/rss.xml"
+stackexchange:
+  site: "webmasters"
+  tags:
+    - "seo"
+    - "google-search-console"
+    - "content"
+trends:
+  enabled: true
+  geo: "ES"
+priority_keywords:
+  - "seo"
+  - "trafico organico"
+  - "keyword research"
+  - "link building"
+  - "contenido evergreen"

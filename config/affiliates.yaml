@@ -1,0 +1,27 @@
+﻿default_disclaimer: "Enlaces afiliados: puedo recibir comision sin costo extra para ti."
+by_keyword:
+  seo:
+    - name: "Curso practico de SEO"
+      url: "https://example.com/afiliado/curso-seo"
+      disclaimer: "Recurso para aprender fundamentos y ejecucion semanal."
+  contenido:
+    - name: "Plantillas de calendario editorial"
+      url: "https://example.com/afiliado/calendario-editorial"
+      disclaimer: "Incluye estructura para planificar publicaciones."
+  conversion:
+    - name: "Guia de copy para landing"
+      url: "https://example.com/afiliado/copy-landing"
+      disclaimer: "Ayuda a mejorar conversion sin aumentar trafico."
+by_category:
+  blog:
+    - name: "Kit de productividad para creadores"
+      url: "https://example.com/afiliado/kit-productividad"
+      disclaimer: "Checklist y rutinas para publicar con consistencia."
+  seo:
+    - name: "Workbook de auditoria tecnica"
+      url: "https://example.com/afiliado/auditoria-tecnica"
+      disclaimer: "Plantilla editable para detectar mejoras SEO."
+fallback:
+  - name: "Biblioteca de recursos digitales"
+    url: "https://example.com/afiliado/recursos"
+    disclaimer: "Compilado general para marketing de contenidos."
