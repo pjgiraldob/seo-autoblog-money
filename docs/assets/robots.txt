@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://example.github.io/seo-autoblog-money/sitemap.xml
+Sitemap: https://pjgiraldob.github.io/seo-autoblog-money/sitemap.xml
