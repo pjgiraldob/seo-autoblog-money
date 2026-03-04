@@ -132,21 +132,42 @@ def _section(topic: str, n: int) -> str:
         "Medicion y optimizacion",
         "Escalado sostenible",
     ]
+    diagnosticos = [
+        "Arranca con un mapa de dolores del lector y define una promesa unica para la pieza. Esto evita contenidos genericos y mejora la claridad de conversion desde el primer scroll.",
+        "Revisa si la estructura de URL, H2 y enlaces internos representa un solo objetivo de busqueda. Si una seccion intenta responder varias intenciones, separala en activos distintos.",
+        "Convierte el plan editorial en un checklist operativo con responsables y tiempos de entrega. El objetivo es reducir friccion de coordinacion y sostener cadencia semanal.",
+        "Identifica los canales que realmente te traen lectores calificados y prioriza esos puntos de distribucion. No todos los canales aportan el mismo retorno en este nicho.",
+        "Define un tablero minimo con tres metricas clave por articulo: visibilidad, engagement y accion. Medir menos pero mejor acelera decisiones y evita ruido.",
+        "Documenta que partes del proceso ya son repetibles y cuales dependen de una persona. Esa diferencia te muestra exactamente donde invertir para crecer sin cuellos de botella.",
+    ]
+    ejecuciones = [
+        "Usa briefs concretos con contexto, angulo editorial y salida esperada. Un brief claro reduce retrabajo y mantiene consistencia entre piezas de un mismo cluster.",
+        "Diseña un template de articulo con bloques fijos: problema, solucion, comparativa y accion final. Esta base mejora lectura y facilita actualizaciones futuras.",
+        "Aplica una revision en dos pasadas: primero coherencia narrativa, luego precision tecnica. Separar ambas fases eleva calidad sin duplicar tiempos.",
+        "Crea versiones cortas del contenido para redes y newsletter, pero sin romper el mensaje central. Asi amplificas alcance conservando posicionamiento semantico.",
+        "Corre micro-experimentos en titulares, FAQs y CTA para validar mejoras. Cambios pequenos y medibles suelen rendir mas que reescrituras completas.",
+        "Automatiza tareas repetitivas de baja complejidad y deja lo editorial critico para revision humana. Esa combinacion protege calidad mientras aumenta produccion.",
+    ]
+    controles = [
+        "Controla CTR por bloque tematico y no solo por pagina completa. Asi detectas donde el lector conecta y donde necesitas reforzar valor.",
+        "Evalua profundidad de lectura por seccion para depurar la jerarquia del contenido. Si el abandono aparece temprano, mejora apertura y relevancia del primer tercio.",
+        "Revisa tiempo de ciclo desde idea hasta publicacion para detectar cuellos de botella operativos. Reducir este tiempo mejora capacidad de respuesta ante tendencias.",
+        "Mide aportes de cada canal en visitas cualificadas y conversion final. Priorizar distribucion por retorno evita dispersion de esfuerzos.",
+        "Analiza conversion por CTA y contexto del enlace para ajustar ubicacion y copy. La misma oferta puede rendir distinto segun momento de lectura.",
+        "Haz cierre mensual con aprendizajes accionables y estandares actualizados. Sin esta retroalimentacion, la escala suele multiplicar errores en lugar de resultados.",
+    ]
     title = section_titles[(n - 1) % len(section_titles)]
+    diag = diagnosticos[(n - 1) % len(diagnosticos)]
+    ejec = ejecuciones[(n - 1) % len(ejecuciones)]
+    ctrl = controles[(n - 1) % len(controles)]
     return (
         f"## Estrategia {n}: {title} en {topic.lower()}\n\n"
         f"### Diagnostico {n}.1\n"
-        "Empieza con una hipotesis clara: que problema resuelves, para quien y con que promesa de resultado. "
-        "Con esa base, puedes descartar ideas atractivas pero poco rentables y concentrarte en oportunidades que "
-        "realmente muevan negocio.\n\n"
+        f"{diag}\n\n"
         f"### Ejecucion {n}.2\n"
-        "Define una secuencia de acciones simple: investigacion, produccion, revision y publicacion. "
-        "Cada etapa debe tener un criterio de salida concreto para evitar retrabajo y asegurar consistencia editorial. "
-        "Cuando el proceso es predecible, el equipo reduce friccion y publica con mejor calidad.\n\n"
+        f"{ejec}\n\n"
         f"### Control {n}.3\n"
-        "Asocia cada bloque a una metrica accionable: clics organicos, tiempo en pagina, profundidad de scroll o "
-        "conversion en CTA. No hace falta medir todo; basta con dos o tres indicadores por articulo para detectar "
-        "que secciones ayudan y cuales deben reescribirse."
+        f"{ctrl}"
     )
 
 

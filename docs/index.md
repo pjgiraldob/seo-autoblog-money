@@ -23,38 +23,14 @@
   <a class="feature-card" href="posts/top-workflow-automation-tools-in-2026/"><span class="tag-badge">New</span><h3>Top workflow automation tools in 2026</h3><p>Current automation platforms compared for operations and growth teams.</p></a>
 </div>
 
-## Featured Articles
+## Editorial Standards
 
-<div class="cards-grid cards-3 reveal">
-  <article class="article-card">
-    <img src="assets/thumb-ai.svg" loading="lazy" alt="AI tools for developers thumbnail">
-    <div class="article-card-body">
-      <span class="tag-badge">Developers</span>
-      <h3><a href="posts/best-ai-tools-for-developers/">Best AI tools for developers</a></h3>
-      <p>A practical stack to improve coding speed, code quality and documentation.</p>
-      <div class="meta-row"><span>10 min read</span><span>Engineering</span></div>
-    </div>
-  </article>
-
-  <article class="article-card">
-    <img src="assets/thumb-local.svg" loading="lazy" alt="No-code automation platforms thumbnail">
-    <div class="article-card-body">
-      <span class="tag-badge">No-code</span>
-      <h3><a href="posts/top-no-code-automation-platforms/">Top no-code automation platforms</a></h3>
-      <p>Compare no-code options to automate repetitive workflows across teams.</p>
-      <div class="meta-row"><span>8 min read</span><span>Operations</span></div>
-    </div>
-  </article>
-
-  <article class="article-card">
-    <img src="assets/thumb-geo.svg" loading="lazy" alt="Automation with AI thumbnail">
-    <div class="article-card-body">
-      <span class="tag-badge">How-to</span>
-      <h3><a href="posts/how-to-automate-repetitive-work-using-ai/">How to automate repetitive work using AI</a></h3>
-      <p>A simple framework to identify automation opportunities and execute safely.</p>
-      <div class="meta-row"><span>11 min read</span><span>Framework</span></div>
-    </div>
-  </article>
+<div class="page-intro reveal">
+  <p>Para evitar redundancia, los articulos destacados fueron retirados de esta portada.</p>
+  <p>La biblioteca principal mantiene una sola version por tema y se actualiza con control editorial diario.</p>
+  <div class="hero-actions">
+    <a class="btn btn-secondary" href="posts/">Go to article library</a>
+  </div>
 </div>
 
 ## Recommended Tools
