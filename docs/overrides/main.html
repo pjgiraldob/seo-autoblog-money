@@ -6,7 +6,8 @@
   {% set page_title = (page.meta.title if page.meta and page.meta.title else page.title) %}
   {% set page_description = (page.meta.description if page.meta and page.meta.description else config.site_description) %}
 
-  <meta property="og:type" content="website">
+  <meta name="description" content="{{ page_description }}">
+  <meta property="og:type" content="article">
   <meta property="og:title" content="{{ page_title }}">
   <meta property="og:description" content="{{ page_description }}">
   <meta property="og:url" content="{{ canonical_url }}">
@@ -17,19 +18,30 @@
   <meta name="twitter:image" content="{{ config.site_url }}assets/og-cover.svg">
 
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "{{ config.site_name }}",
-      "url": "{{ config.site_url }}",
-      "description": "{{ config.site_description }}"
-    }
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "{{ config.site_name }}",
+    "url": "{{ config.site_url }}",
+    "description": "{{ config.site_description }}"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "{{ config.site_url }}"},
+      {"@type": "ListItem", "position": 2, "name": "{{ page.title }}", "item": "{{ canonical_url }}"}
+    ]
+  }
   </script>
 {% endblock %}
 
 {% block announce %}
   <a href="{{ config.site_url }}newsletter/" style="color:inherit;text-decoration:none;">
-    Nuevo: framework semanal de SEO automatizado y conversion. Suscribete a la newsletter.
+    New: weekly AI workflow + automation brief. Join the newsletter.
   </a>
 {% endblock %}
 
