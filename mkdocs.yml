@@ -8,7 +8,7 @@ use_directory_urls: true
 
 theme:
   name: material
-  language: en
+  language: es
   custom_dir: docs/overrides
   logo: assets/brand-mark.svg
   favicon: assets/brand-mark.svg

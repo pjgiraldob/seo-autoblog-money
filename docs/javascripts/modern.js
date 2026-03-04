@@ -68,11 +68,32 @@
     });
   }
 
+  function languageSwitcher() {
+    const links = document.querySelectorAll('[data-lang-switch]');
+    if (!links.length) return;
+
+    const currentUrl = window.location.href;
+    links.forEach((link) => {
+      const lang = (link.getAttribute('data-lang-switch') || 'es').toLowerCase();
+      if (lang === 'es') {
+        link.setAttribute('href', currentUrl);
+        link.removeAttribute('target');
+        link.removeAttribute('rel');
+        return;
+      }
+      const translated = `https://translate.google.com/translate?sl=es&tl=${encodeURIComponent(lang)}&u=${encodeURIComponent(currentUrl)}`;
+      link.setAttribute('href', translated);
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
+    });
+  }
+
   function init() {
     revealOnScroll();
     readingProgress();
     enhanceArticlePage();
     newsletterFormRouting();
+    languageSwitcher();
   }
 
   document.addEventListener('DOMContentLoaded', init);

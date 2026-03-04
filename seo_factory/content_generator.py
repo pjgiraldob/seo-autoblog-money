@@ -124,17 +124,29 @@ def _make_intro(topic: str) -> str:
 
 
 def _section(topic: str, n: int) -> str:
+    section_titles = [
+        "Investigacion y enfoque",
+        "Arquitectura de contenido",
+        "Implementacion operativa",
+        "Distribucion y amplificacion",
+        "Medicion y optimizacion",
+        "Escalado sostenible",
+    ]
+    title = section_titles[(n - 1) % len(section_titles)]
     return (
-        f"## Estrategia {n}: aplicar {topic.lower()} con enfoque practico\n\n"
-        f"### Paso clave {n}.1\n"
-        "Define una intencion principal y una secundaria para evitar mezclar objetivos en la misma URL. "
-        "Esto mejora la claridad editorial y facilita que el contenido responda mejor a una consulta concreta.\n\n"
-        f"### Paso clave {n}.2\n"
-        "Usa una estructura repetible: contexto, accion, evidencia y siguiente paso. "
-        "Cuando todos los apartados siguen un patron, el lector avanza mas rapido y la retencion mejora.\n\n"
-        f"### Paso clave {n}.3\n"
-        "Cierra cada bloque con una micro-accion medible, por ejemplo revisar CTR, ajustar subtitulos o "
-        "mejorar ejemplos. Ese detalle convierte teoria en ejecucion semanal."
+        f"## Estrategia {n}: {title} en {topic.lower()}\n\n"
+        f"### Diagnostico {n}.1\n"
+        "Empieza con una hipotesis clara: que problema resuelves, para quien y con que promesa de resultado. "
+        "Con esa base, puedes descartar ideas atractivas pero poco rentables y concentrarte en oportunidades que "
+        "realmente muevan negocio.\n\n"
+        f"### Ejecucion {n}.2\n"
+        "Define una secuencia de acciones simple: investigacion, produccion, revision y publicacion. "
+        "Cada etapa debe tener un criterio de salida concreto para evitar retrabajo y asegurar consistencia editorial. "
+        "Cuando el proceso es predecible, el equipo reduce friccion y publica con mejor calidad.\n\n"
+        f"### Control {n}.3\n"
+        "Asocia cada bloque a una metrica accionable: clics organicos, tiempo en pagina, profundidad de scroll o "
+        "conversion en CTA. No hace falta medir todo; basta con dos o tres indicadores por articulo para detectar "
+        "que secciones ayudan y cuales deben reescribirse."
     )
 
 
@@ -164,6 +176,28 @@ def _faq_block(topic: str) -> str:
         lines.append(f"### {question}")
         lines.append(answer)
     return "\n".join(lines)
+
+
+def _expansion_blocks(topic: str) -> list[str]:
+    return [
+        (
+            "## Errores comunes y como evitarlos\n\n"
+            f"Uno de los errores mas frecuentes al trabajar {topic.lower()} es publicar sin una tesis clara. "
+            "Eso genera piezas largas pero debiles, sin foco y con baja conversion. Define primero una promesa "
+            "especifica para el lector y valida que cada seccion contribuya a esa promesa.\n\n"
+            "Otro error es depender solo de intuicion. Usa datos minimos: consultas que activan impresiones, "
+            "secciones con mayor permanencia y enlaces internos con mejor CTR. Esa informacion evita decisiones "
+            "aleatorias y acelera mejoras de forma consistente."
+        ),
+        (
+            "## Plan de 30 dias para implementarlo\n\n"
+            "Semana 1: define temas prioritarios y crea un esquema por articulo con objetivos medibles.\n\n"
+            "Semana 2: publica, enlaza internamente y revisa legibilidad en desktop y mobile.\n\n"
+            "Semana 3: optimiza titulares, FAQs y bloques de recomendacion segun datos de comportamiento.\n\n"
+            "Semana 4: compara resultados, documenta aprendizajes y estandariza el flujo para el siguiente ciclo.\n\n"
+            "Este ritmo mensual evita saturacion y te permite mejorar sin romper la operacion diaria."
+        ),
+    ]
 
 
 def _build_jsonld(title: str, description: str, canonical: str, faqs: list[tuple[str, str]]) -> str:
@@ -215,13 +249,15 @@ def generate_article(
         meta_description += " Incluye checklist, FAQ y recursos para ejecutar hoy mismo."
     meta_description = meta_description[:160].strip()
 
-    sections = [_section(topic, i) for i in range(1, 6)]
+    sections = [_section(topic, i) for i in range(1, 7)]
     body_parts = [
         f"# {title}",
         "",
         _make_intro(topic),
         "",
         *sections,
+        "",
+        *_expansion_blocks(topic),
         "",
         _checklist_table(),
         "",
@@ -234,16 +270,12 @@ def generate_article(
 
     body = "\n".join(body_parts)
 
-    # Add supporting filler to keep articles in a stable long-form range.
-    filler = (
-        "\n\n"
-        "### Nota de implementacion\n"
-        "Cuando trabajas contenido de largo formato, prioriza coherencia semantica y una jerarquia de encabezados limpia. "
-        "Cada subseccion debe responder una duda puntual del lector y conducir al siguiente bloque con naturalidad. "
-        "Si el texto se percibe fragmentado, baja la conversion incluso con buen ranking."
-    )
-    while _word_count(body) < 1250:
-        body += filler
+    if _word_count(body) < 1200:
+        body += (
+            "\n\n## Nota de implementacion\n"
+            "Si el articulo queda corto, prioriza ampliar ejemplos reales, casos de uso y decisiones tacticas. "
+            "Evita repetir texto literal; cada parrafo adicional debe aportar una accion concreta o una evidencia nueva."
+        )
 
     faq_pairs = [
         ("Que es lo primero que debo hacer para empezar?", "Define la intencion principal y un objetivo medible por URL."),

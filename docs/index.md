@@ -9,7 +9,7 @@
     <a class="btn btn-secondary" href="reviews/">Recommended Tools</a>
   </div>
   <div class="hero-kpis">
-    <div><strong>Daily</strong><span>Automated publishing</span></div>
+    <div><strong>Curated</strong><span>10 high-value articles</span></div>
     <div><strong>Long-form</strong><span>1200-1800 words</span></div>
     <div><strong>SEO-Ready</strong><span>Schema + Sitemap + RSS</span></div>
   </div>
@@ -27,32 +27,32 @@
 
 <div class="cards-grid cards-3 reveal">
   <article class="article-card">
-    <img src="assets/thumb-ai.svg" loading="lazy" alt="AI SEO Strategy thumbnail">
+    <img src="assets/thumb-ai.svg" loading="lazy" alt="AI tools for developers thumbnail">
     <div class="article-card-body">
-      <span class="tag-badge">AI SEO</span>
-      <h3><a href="posts/how-to-build-an-ai-seo-strategy-that-outlasts-tactics-via-sejournal-kevinindig/">How to Build an AI SEO Strategy</a></h3>
-      <p>Build resilient growth loops that survive algorithm shifts and platform cycles.</p>
-      <div class="meta-row"><span>10 min read</span><span>Strategy</span></div>
+      <span class="tag-badge">Developers</span>
+      <h3><a href="posts/best-ai-tools-for-developers/">Best AI tools for developers</a></h3>
+      <p>A practical stack to improve coding speed, code quality and documentation.</p>
+      <div class="meta-row"><span>10 min read</span><span>Engineering</span></div>
     </div>
   </article>
 
   <article class="article-card">
-    <img src="assets/thumb-local.svg" loading="lazy" alt="Local rankings data thumbnail">
+    <img src="assets/thumb-local.svg" loading="lazy" alt="No-code automation platforms thumbnail">
     <div class="article-card-body">
-      <span class="tag-badge">Local SEO</span>
-      <h3><a href="posts/the-data-reveals-whats-driving-local-rankings-now-via-sejournal-hethrcampbell/">What Drives Local Rankings Now</a></h3>
-      <p>A focused summary of ranking factors that matter most for local visibility in 2026.</p>
-      <div class="meta-row"><span>8 min read</span><span>Data</span></div>
+      <span class="tag-badge">No-code</span>
+      <h3><a href="posts/top-no-code-automation-platforms/">Top no-code automation platforms</a></h3>
+      <p>Compare no-code options to automate repetitive workflows across teams.</p>
+      <div class="meta-row"><span>8 min read</span><span>Operations</span></div>
     </div>
   </article>
 
   <article class="article-card">
-    <img src="assets/thumb-geo.svg" loading="lazy" alt="AEO vs SEO thumbnail">
+    <img src="assets/thumb-geo.svg" loading="lazy" alt="Automation with AI thumbnail">
     <div class="article-card-body">
-      <span class="tag-badge">AEO</span>
-      <h3><a href="posts/answer-engine-optimization-vs-traditional-seo-what-marketers-need-to-know/">AEO vs Traditional SEO</a></h3>
-      <p>How to optimize for AI answer engines while preserving core technical SEO fundamentals.</p>
-      <div class="meta-row"><span>11 min read</span><span>Future-proofing</span></div>
+      <span class="tag-badge">How-to</span>
+      <h3><a href="posts/how-to-automate-repetitive-work-using-ai/">How to automate repetitive work using AI</a></h3>
+      <p>A simple framework to identify automation opportunities and execute safely.</p>
+      <div class="meta-row"><span>11 min read</span><span>Framework</span></div>
     </div>
   </article>
 </div>
@@ -133,6 +133,16 @@
   </a>
 </div>
 
+## Change Language
+
+<div class="language-block reveal">
+  <p>Use the global language switch to view this page in your preferred language.</p>
+  <div class="hero-actions">
+    <a class="btn btn-secondary" data-lang-switch="es" href="#">Espanol</a>
+    <a class="btn btn-secondary" data-lang-switch="en" href="#">English</a>
+  </div>
+</div>
+
 ## Newsletter
 
 <div class="newsletter-cta reveal">
@@ -166,4 +176,3 @@
     </div>
   </div>
 </footer>
-

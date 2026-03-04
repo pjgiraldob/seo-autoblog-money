@@ -388,6 +388,18 @@ body {
   font-size: 0.76rem;
 }
 
+.language-block {
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--c-line-light);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+[data-md-color-scheme="slate"] .language-block {
+  border-color: var(--c-line-dark);
+  background: rgba(15, 23, 42, 0.62);
+}
+
 .md-typeset table:not([class]) {
   border-radius: var(--radius-md);
   overflow: hidden;

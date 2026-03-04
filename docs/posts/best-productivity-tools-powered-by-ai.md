@@ -130,7 +130,6 @@ Cuando trabajas contenido de largo formato, prioriza coherencia semantica y una 
 ## Related reading
 
 - [Best AI automation tools for developers](best-ai-automation-tools-for-developers.md)
-- [The Data Reveals: What’s Driving Local Rankings Now via @sejournal, @hethr_campbell](the-data-reveals-whats-driving-local-rankings-now-via-sejournal-hethrcampbell.md)
 - [Guia Pilar Seo Para Creadores](../guides/guia-pilar-seo-para-creadores.md)
 
 ## Recomendaciones
