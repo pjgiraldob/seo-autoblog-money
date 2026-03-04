@@ -1,4 +1,4 @@
----
+﻿---
 title: "Google Clarifies How It Picks Thumbnails For Search, Discover via @sejournal, @MattGSouthern"
 slug: "google-clarifies-how-it-picks-thumbnails-for-search-discover-via-sejournal-mattgsouthern"
 date: "2026-03-04"
@@ -126,7 +126,7 @@ Cuando trabajas contenido de largo formato, prioriza coherencia semantica y una 
 
 ## Lecturas relacionadas
 
-- [Guia Pilar de Seo Para Creadores](guia-pilar-seo-para-creadores.md)
+- [Guia Pilar de Seo Para Creadores](../guides/guia-pilar-seo-para-creadores.md)
 - [Guia Pilar Seo Para Creadores](../guides/guia-pilar-seo-para-creadores.md)
 
 ## Recomendaciones

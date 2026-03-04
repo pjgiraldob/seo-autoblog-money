@@ -1,4 +1,4 @@
----
+﻿---
 title: "AI engine optimization audit: How to audit your content for AI search engines"
 slug: "ai-engine-optimization-audit-how-to-audit-your-content-for-ai-search-engines"
 date: "2026-03-04"
@@ -127,7 +127,7 @@ Cuando trabajas contenido de largo formato, prioriza coherencia semantica y una 
 ## Lecturas relacionadas
 
 - [Generative engine optimization for small business: How to win with a small budget in 2026](generative-engine-optimization-for-small-business-how-to-win-with-a-small-budget-in-2026.md)
-- [Guia Pilar de Seo Para Creadores](guia-pilar-seo-para-creadores.md)
+- [Guia Pilar de Seo Para Creadores](../guides/guia-pilar-seo-para-creadores.md)
 - [Guia Pilar Seo Para Creadores](../guides/guia-pilar-seo-para-creadores.md)
 
 ## Recomendaciones

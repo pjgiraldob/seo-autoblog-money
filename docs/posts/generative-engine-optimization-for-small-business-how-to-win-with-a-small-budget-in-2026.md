@@ -1,4 +1,4 @@
----
+﻿---
 title: "Generative engine optimization for small business: How to win with a small budget in 2026"
 slug: "generative-engine-optimization-for-small-business-how-to-win-with-a-small-budget-in-2026"
 date: "2026-03-04"
@@ -123,7 +123,7 @@ Cuando trabajas contenido de largo formato, prioriza coherencia semantica y una 
 
 ## Lecturas relacionadas
 
-- [Guia Pilar de Seo Para Creadores](guia-pilar-seo-para-creadores.md)
+- [Guia Pilar de Seo Para Creadores](../guides/guia-pilar-seo-para-creadores.md)
 - [Google Clarifies How It Picks Thumbnails For Search, Discover via @sejournal, @MattGSouthern](google-clarifies-how-it-picks-thumbnails-for-search-discover-via-sejournal-mattgsouthern.md)
 - [Guia Pilar Seo Para Creadores](../guides/guia-pilar-seo-para-creadores.md)
 
