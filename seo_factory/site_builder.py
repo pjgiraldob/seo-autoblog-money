@@ -65,6 +65,9 @@ def _frontmatter_to_yaml(frontmatter: dict[str, Any]) -> str:
 def _related_links(current_tags: list[str], existing: list[dict[str, Any]]) -> list[dict[str, Any]]:
     scored: list[tuple[int, dict[str, Any]]] = []
     for item in existing:
+        path = str(item.get("path", ""))
+        if not path.startswith("posts/"):
+            continue
         tags_raw = item.get("tags", "")
         if isinstance(tags_raw, str):
             tags = [t.strip().strip("[]\"") for t in tags_raw.split(",") if t.strip()]
