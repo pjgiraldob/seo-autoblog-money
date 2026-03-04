@@ -16,8 +16,6 @@ theme:
     text: Inter
     code: JetBrains Mono
   features:
-    - navigation.instant
-    - navigation.instant.progress
     - navigation.sections
     - navigation.path
     - navigation.top

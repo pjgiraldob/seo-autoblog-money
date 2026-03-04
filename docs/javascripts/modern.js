@@ -40,6 +40,7 @@
 
     const content = qs('.md-content__inner');
     if (!content) return;
+    if (qs('.share-row', content)) return;
 
     const share = document.createElement('div');
     share.className = 'share-row reveal';
@@ -67,10 +68,15 @@
     });
   }
 
-  document.addEventListener('DOMContentLoaded', function () {
+  function init() {
     revealOnScroll();
     readingProgress();
     enhanceArticlePage();
     newsletterFormRouting();
-  });
+  }
+
+  document.addEventListener('DOMContentLoaded', init);
+  if (window.document$ && typeof window.document$.subscribe === 'function') {
+    window.document$.subscribe(init);
+  }
 })();
