@@ -82,8 +82,16 @@ body {
   text-decoration-thickness: 2px;
 }
 
+.md-typeset a:visited {
+  color: #7c3aed;
+}
+
 [data-md-color-scheme="slate"] .md-typeset a {
   color: #7dd3fc;
+}
+
+[data-md-color-scheme="slate"] .md-typeset a:visited {
+  color: #a78bfa;
 }
 
 .md-typeset a:hover {
