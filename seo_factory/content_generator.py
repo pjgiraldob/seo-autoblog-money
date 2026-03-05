@@ -2,6 +2,7 @@
 
 import json
 import re
+import zlib
 from dataclasses import dataclass
 from datetime import datetime
 from typing import Any
@@ -176,90 +177,74 @@ def _make_intro(topic: str, profile: str) -> str:
     )
 
 
-def _section(topic: str, n: int, profile: str) -> str:
-    profile_titles = {
-        "developers": ["Backlog de automatizacion", "Tooling y stack", "Integracion CI/CD", "Seguridad y QA", "Metrica tecnica", "Escalado del equipo"],
-        "productivity": ["Priorizacion diaria", "Gestor de tareas", "Automatizacion personal", "Colaboracion", "Seguimiento de objetivos", "Rutina sostenible"],
-        "workflow": ["Mapeo de procesos", "Orquestacion de tareas", "Integracion de apps", "Alertas y seguimiento", "KPI de flujo", "Mejora continua"],
-        "business": ["Procesos criticos", "Coste y margen", "Automatizacion comercial", "Operacion y soporte", "Control financiero", "Gobernanza"],
-        "timesaving": ["Auditoria de tiempo", "Tareas repetitivas", "Atajos operativos", "Delegacion con IA", "Medicion semanal", "Escala gradual"],
-        "nocode": ["Casos de uso", "Seleccion de plataforma", "Diseño de escenarios", "Mantenimiento", "Control de errores", "Escala sin friccion"],
-        "content": ["Brief editorial", "Produccion asistida", "Revision de calidad", "Distribucion", "Rendimiento SEO", "Biblioteca reusable"],
-        "startup": ["Prioridad de negocio", "Stack minimo", "Automatizacion comercial", "Operacion lean", "Metricas de crecimiento", "Escala eficiente"],
-        "howto": ["Identificar tareas", "Diseñar flujo", "Implementar", "Validar resultado", "Optimizar", "Estandarizar"],
+def _section_banks(profile: str) -> list[tuple[str, str, list[str]]]:
+    common = [
+        ("Criterio de seleccion", "Define criterios de comparacion antes de elegir herramientas: costo total, curva de adopcion y capacidad de integracion.", ["Documenta criterios", "Asigna peso por criterio", "Descarta opciones sin integracion"]),
+        ("Implementacion inicial", "Empieza con un piloto reducido de 7 a 14 dias para validar adopcion real y estabilidad.", ["Elige un proceso", "Mide antes/despues", "Evalua friccion operativa"]),
+        ("Riesgos y control", "Todo sistema automatizado requiere reglas de control, monitoreo de errores y responsable de mantenimiento.", ["Define alertas", "Crea plan de rollback", "Revisa errores semanalmente"]),
+        ("Indicadores de impacto", "No midas solo volumen. Mide tiempo ahorrado, calidad del resultado y mejora de conversion.", ["Define 3 KPI", "Compara por cohorte", "Ajusta cada 2 semanas"]),
+        ("Escala sin caos", "Escala solo lo que ya funciona en pequeño. Estandariza antes de multiplicar.", ["Plantillas de proceso", "Checklist de QA", "Bitacora de cambios"]),
+        ("Roadmap de mejora", "La ventaja competitiva aparece cuando conviertes optimizaciones en un ciclo continuo.", ["Prioriza mejoras", "Ejecuta iteraciones cortas", "Publica aprendizajes internos"]),
+    ]
+    by_profile = {
+        "developers": [
+            ("Automatizacion en desarrollo", "Prioriza tareas de alto volumen: tests repetitivos, revisiones de estilo, generacion de docs y scaffolding.", ["Mapea tareas repetitivas", "Automatiza en CI", "Mide tiempo por pull request"]),
+            ("Integracion con repositorio", "El valor real llega cuando la herramienta vive en el flujo del equipo y no como app aislada.", ["Configura hooks", "Conecta issue tracker", "Define convenciones de commit"]),
+        ],
+        "productivity": [
+            ("Sistema de foco diario", "La productividad mejora cuando automatizas contexto: prioridades, calendario y recordatorios de seguimiento.", ["Bloques de trabajo profundo", "Reglas de notificacion", "Reunion de cierre semanal"]),
+            ("Evitar sobreautomatizacion", "No todo se debe automatizar; protege tareas creativas y decisiones de alto contexto.", ["Lista de excepciones", "Revision quincenal", "Reglas de override manual"]),
+        ],
+        "workflow": [
+            ("Mapa de flujo extremo a extremo", "Antes de elegir herramienta, visualiza dependencias entre equipos, aprobaciones y handoffs.", ["Diagrama actual", "Cuellos de botella", "Version objetivo"]),
+            ("Orquestacion entre sistemas", "La automatizacion falla cuando cada app trabaja aislada. Diseña eventos y estados comunes.", ["Evento de inicio/fin", "Estados unificados", "Validacion de datos"]),
+        ],
+        "business": [
+            ("Impacto en margen", "Automatizar sin vincular costo y margen produce actividad, no resultados.", ["Costo por proceso", "Tiempo por tarea", "Impacto en margen bruto"]),
+            ("Automatizacion comercial", "En ventas y ops, automatiza seguimiento, scoring y pasos de onboarding.", ["Lead scoring", "Secuencias de seguimiento", "Alertas de riesgo"]),
+        ],
+        "timesaving": [
+            ("Auditoria de tiempo real", "Empieza por actividades recurrentes de bajo valor y alto consumo horario.", ["Top 10 tareas", "Minutos por tarea", "Frecuencia semanal"]),
+            ("Recuperar horas utiles", "El objetivo no es automatizar por moda, sino liberar tiempo para trabajo estrategico.", ["Horas recuperadas", "Reasignacion de tiempo", "Resultado semanal"]),
+        ],
+        "nocode": [
+            ("Seleccion de plataforma no-code", "Compara limites de ejecucion, conectores, costos por volumen y trazabilidad.", ["Limites tecnicos", "Estructura de costos", "Disponibilidad de integraciones"]),
+            ("Gobierno de flujos", "Sin governance, los escenarios no-code se rompen al crecer el equipo.", ["Control de versiones", "Permisos por rol", "Responsable por flujo"]),
+        ],
+        "content": [
+            ("Pipeline editorial con IA", "La IA acelera borradores, pero la calidad final depende de criterio editorial humano.", ["Brief por pieza", "Reglas de estilo", "Validacion de hechos"]),
+            ("Distribucion multicanal", "Un articulo rinde mas cuando se adapta por canal sin perder tesis central.", ["Version newsletter", "Resumen social", "Enlaces internos tematicos"]),
+        ],
+        "startup": [
+            ("Stack minimo viable", "En startups, gana la simplicidad: pocas herramientas bien conectadas superan stacks complejos.", ["3 herramientas maximo", "Integracion clave", "Costo mensual controlado"]),
+            ("Ejecucion con equipo pequeno", "Automatiza tareas administrativas para proteger tiempo de producto y ventas.", ["Rutinas operativas", "Dashboard unico", "Revision semanal corta"]),
+        ],
+        "howto": [
+            ("Metodo paso a paso", "Empieza por un flujo unico, define objetivo, ejecuta piloto y escala con evidencia.", ["Objetivo del piloto", "Ejecucion guiada", "Criterio de exito"]),
+            ("Errores frecuentes al iniciar", "Los primeros fallos suelen venir por falta de datos, pasos ambiguos y ausencia de responsable.", ["Datos de entrada", "Secuencia clara", "Dueño del proceso"]),
+        ],
     }
-    section_titles = profile_titles.get(profile, ["Investigacion y enfoque", "Arquitectura de contenido", "Implementacion operativa", "Distribucion y amplificacion", "Medicion y optimizacion", "Escalado sostenible"])
-    diagnosticos = [
-        "Arranca con un mapa de dolores del lector y define una promesa unica para la pieza. Esto evita contenidos genericos y mejora la claridad de conversion desde el primer scroll.",
-        "Revisa si la estructura de URL, H2 y enlaces internos representa un solo objetivo de busqueda. Si una seccion intenta responder varias intenciones, separala en activos distintos.",
-        "Convierte el plan editorial en un checklist operativo con responsables y tiempos de entrega. El objetivo es reducir friccion de coordinacion y sostener cadencia semanal.",
-        "Identifica los canales que realmente te traen lectores calificados y prioriza esos puntos de distribucion. No todos los canales aportan el mismo retorno en este nicho.",
-        "Define un tablero minimo con tres metricas clave por articulo: visibilidad, engagement y accion. Medir menos pero mejor acelera decisiones y evita ruido.",
-        "Documenta que partes del proceso ya son repetibles y cuales dependen de una persona. Esa diferencia te muestra exactamente donde invertir para crecer sin cuellos de botella.",
-    ]
-    ejecuciones = [
-        "Usa briefs concretos con contexto, angulo editorial y salida esperada. Un brief claro reduce retrabajo y mantiene consistencia entre piezas de un mismo cluster.",
-        "Diseña un template de articulo con bloques fijos: problema, solucion, comparativa y accion final. Esta base mejora lectura y facilita actualizaciones futuras.",
-        "Aplica una revision en dos pasadas: primero coherencia narrativa, luego precision tecnica. Separar ambas fases eleva calidad sin duplicar tiempos.",
-        "Crea versiones cortas del contenido para redes y newsletter, pero sin romper el mensaje central. Asi amplificas alcance conservando posicionamiento semantico.",
-        "Corre micro-experimentos en titulares, FAQs y CTA para validar mejoras. Cambios pequenos y medibles suelen rendir mas que reescrituras completas.",
-        "Automatiza tareas repetitivas de baja complejidad y deja lo editorial critico para revision humana. Esa combinacion protege calidad mientras aumenta produccion.",
-    ]
-    controles = [
-        "Controla CTR por bloque tematico y no solo por pagina completa. Asi detectas donde el lector conecta y donde necesitas reforzar valor.",
-        "Evalua profundidad de lectura por seccion para depurar la jerarquia del contenido. Si el abandono aparece temprano, mejora apertura y relevancia del primer tercio.",
-        "Revisa tiempo de ciclo desde idea hasta publicacion para detectar cuellos de botella operativos. Reducir este tiempo mejora capacidad de respuesta ante tendencias.",
-        "Mide aportes de cada canal en visitas cualificadas y conversion final. Priorizar distribucion por retorno evita dispersion de esfuerzos.",
-        "Analiza conversion por CTA y contexto del enlace para ajustar ubicacion y copy. La misma oferta puede rendir distinto segun momento de lectura.",
-        "Haz cierre mensual con aprendizajes accionables y estandares actualizados. Sin esta retroalimentacion, la escala suele multiplicar errores en lugar de resultados.",
-    ]
-    action_sets = [
-        [
-            "Define un objetivo principal de conversion para la pieza.",
-            "Resume la promesa del articulo en una frase verificable.",
-            "Elimina bloques que no aporten al objetivo principal.",
-        ],
-        [
-            "Alinea cada H2 con una intencion de busqueda concreta.",
-            "Añade enlaces internos a contenidos complementarios.",
-            "Revisa que la ruta de navegacion sea coherente en mobile.",
-        ],
-        [
-            "Usa checklist de revision antes de publicar.",
-            "Mantiene una frecuencia semanal sostenible de mejoras.",
-            "Registra cambios y resultados en una bitacora editorial.",
-        ],
-        [
-            "Distribuye el articulo en un canal primario y uno secundario.",
-            "Adapta el mensaje para newsletter sin cambiar la tesis.",
-            "Mide que canal aporta sesiones con mayor permanencia.",
-        ],
-        [
-            "Prueba dos variantes de subtitulo por seccion clave.",
-            "Evalua CTR de enlaces internos despues de 7 dias.",
-            "Ajusta CTA segun intencion y etapa del lector.",
-        ],
-        [
-            "Estandariza bloques reutilizables de mayor rendimiento.",
-            "Automatiza tareas operativas de bajo valor editorial.",
-            "Planifica la siguiente iteracion con aprendizaje documentado.",
-        ],
-    ]
-    title = section_titles[(n - 1) % len(section_titles)]
-    diag = diagnosticos[(n - 1) % len(diagnosticos)]
-    ejec = ejecuciones[(n - 1) % len(ejecuciones)]
-    ctrl = controles[(n - 1) % len(controles)]
-    actions = action_sets[(n - 1) % len(action_sets)]
-    return (
-        f"## Estrategia {n}: {title} en {topic.lower()}\n\n"
-        f"{diag}\n\n"
-        f"{ejec}\n\n"
-        f"Acciones recomendadas:\n"
-        f"- {actions[0]}\n"
-        f"- {actions[1]}\n"
-        f"- {actions[2]}\n\n"
-        f"{ctrl}"
-    )
+    return by_profile.get(profile, []) + common
+
+
+def _build_sections(topic: str, slug: str, profile: str) -> list[str]:
+    bank = _section_banks(profile)
+    if len(bank) < 6:
+        return []
+    start = zlib.crc32(slug.encode("utf-8")) % len(bank)
+    sections: list[str] = []
+    for idx in range(6):
+        title, paragraph, actions = bank[(start + idx) % len(bank)]
+        sections.append(
+            f"## Bloque {idx + 1}: {title}\n\n"
+            f"{paragraph}\n\n"
+            f"Aplicado a {topic.lower()}, este bloque ayuda a pasar de ideas generales a ejecucion concreta.\n\n"
+            "Checklist de ejecucion:\n"
+            f"- {actions[0]}\n"
+            f"- {actions[1]}\n"
+            f"- {actions[2]}"
+        )
+    return sections
 
 
 def _checklist_table(profile: str) -> str:
@@ -397,7 +382,7 @@ def generate_article(
         meta_description += " Incluye checklist, FAQ y recursos para ejecutar hoy mismo."
     meta_description = meta_description[:160].strip()
 
-    sections = [_section(title, i, profile=profile) for i in range(1, 7)]
+    sections = _build_sections(title, slug, profile=profile)
     body_parts = [
         f"# {title}",
         "",
