@@ -129,8 +129,44 @@ def _localize_topic(topic: str, language: str = "es") -> str:
     return text
 
 
-def _make_intro(topic: str) -> str:
+def _topic_profile(topic: str, slug: str) -> str:
+    text = f"{topic} {slug}".lower()
+    if "developer" in text or "desarrollador" in text:
+        return "developers"
+    if "productivity" in text or "productividad" in text:
+        return "productivity"
+    if "no-code" in text or "sin-codigo" in text or "sin codigo" in text:
+        return "nocode"
+    if "startup" in text:
+        return "startup"
+    if "content" in text or "contenido" in text:
+        return "content"
+    if "workflow" in text or "flujos" in text:
+        return "workflow"
+    if "business" in text or "negocio" in text:
+        return "business"
+    if "time" in text or "tiempo" in text:
+        return "timesaving"
+    if "repetitive" in text or "repetitivo" in text:
+        return "howto"
+    return "general"
+
+
+def _make_intro(topic: str, profile: str) -> str:
+    openers = {
+        "developers": "Para equipos de desarrollo, automatizar tareas repetitivas libera horas de foco tecnico y reduce retrabajo en sprint.",
+        "productivity": "En entornos con alta carga operativa, la productividad mejora cuando combinas procesos simples con asistentes de IA bien definidos.",
+        "workflow": "Los flujos de trabajo modernos exigen menos pasos manuales y mas integracion entre herramientas.",
+        "business": "En operaciones de negocio, la automatizacion rentable es la que reduce costos sin perder control del proceso.",
+        "timesaving": "Si el objetivo es recuperar tiempo, conviene empezar por tareas frecuentes y de baja complejidad.",
+        "nocode": "Las plataformas sin codigo permiten que equipos no tecnicos automaticen procesos sin depender siempre de desarrollo.",
+        "content": "La creacion de contenido escala mejor cuando combinas IA para borradores con criterio editorial humano.",
+        "startup": "En startups, la velocidad de ejecucion depende de tener sistemas ligeros y repetibles.",
+        "howto": "Para automatizar trabajo repetitivo de forma segura, necesitas una secuencia practica y medible.",
+        "general": "La automatizacion bien aplicada convierte tareas operativas en sistemas repetibles y predecibles.",
+    }
     return (
+        f"{openers.get(profile, openers['general'])} "
         f"{topic} es una oportunidad real para captar trafico organico con intencion de busqueda clara. "
         "En esta guia te muestro un proceso completo para investigar, priorizar y publicar sin depender de herramientas pagas.\n\n"
         "La idea central es simple: combinar SEO tecnico, contenido util y medicion basica para iterar cada semana. "
@@ -140,15 +176,19 @@ def _make_intro(topic: str) -> str:
     )
 
 
-def _section(topic: str, n: int) -> str:
-    section_titles = [
-        "Investigacion y enfoque",
-        "Arquitectura de contenido",
-        "Implementacion operativa",
-        "Distribucion y amplificacion",
-        "Medicion y optimizacion",
-        "Escalado sostenible",
-    ]
+def _section(topic: str, n: int, profile: str) -> str:
+    profile_titles = {
+        "developers": ["Backlog de automatizacion", "Tooling y stack", "Integracion CI/CD", "Seguridad y QA", "Metrica tecnica", "Escalado del equipo"],
+        "productivity": ["Priorizacion diaria", "Gestor de tareas", "Automatizacion personal", "Colaboracion", "Seguimiento de objetivos", "Rutina sostenible"],
+        "workflow": ["Mapeo de procesos", "Orquestacion de tareas", "Integracion de apps", "Alertas y seguimiento", "KPI de flujo", "Mejora continua"],
+        "business": ["Procesos criticos", "Coste y margen", "Automatizacion comercial", "Operacion y soporte", "Control financiero", "Gobernanza"],
+        "timesaving": ["Auditoria de tiempo", "Tareas repetitivas", "Atajos operativos", "Delegacion con IA", "Medicion semanal", "Escala gradual"],
+        "nocode": ["Casos de uso", "Seleccion de plataforma", "Diseño de escenarios", "Mantenimiento", "Control de errores", "Escala sin friccion"],
+        "content": ["Brief editorial", "Produccion asistida", "Revision de calidad", "Distribucion", "Rendimiento SEO", "Biblioteca reusable"],
+        "startup": ["Prioridad de negocio", "Stack minimo", "Automatizacion comercial", "Operacion lean", "Metricas de crecimiento", "Escala eficiente"],
+        "howto": ["Identificar tareas", "Diseñar flujo", "Implementar", "Validar resultado", "Optimizar", "Estandarizar"],
+    }
+    section_titles = profile_titles.get(profile, ["Investigacion y enfoque", "Arquitectura de contenido", "Implementacion operativa", "Distribucion y amplificacion", "Medicion y optimizacion", "Escalado sostenible"])
     diagnosticos = [
         "Arranca con un mapa de dolores del lector y define una promesa unica para la pieza. Esto evita contenidos genericos y mejora la claridad de conversion desde el primer scroll.",
         "Revisa si la estructura de URL, H2 y enlaces internos representa un solo objetivo de busqueda. Si una seccion intenta responder varias intenciones, separala en activos distintos.",
@@ -222,7 +262,18 @@ def _section(topic: str, n: int) -> str:
     )
 
 
-def _checklist_table() -> str:
+def _checklist_table(profile: str) -> str:
+    profile_row = {
+        "developers": "| Revisar tiempo de ciclo dev | Semanal | Reducir bloqueos en entrega |\n",
+        "productivity": "| Medir tareas completadas | Semanal | Mejorar foco y ejecucion |\n",
+        "workflow": "| Auditar tiempos por etapa | Semanal | Detectar cuellos de botella |\n",
+        "business": "| Revisar costo por proceso | Quincenal | Mejorar margen operativo |\n",
+        "timesaving": "| Medir horas recuperadas | Semanal | Ganar capacidad de ejecucion |\n",
+        "nocode": "| Validar flujos sin error | Semanal | Garantizar continuidad |\n",
+        "content": "| Revisar calidad editorial | Semanal | Mantener consistencia de marca |\n",
+        "startup": "| Medir impacto por automatizacion | Semanal | Priorizar crecimiento |\n",
+        "howto": "| Verificar adopcion del proceso | Semanal | Evitar recaida manual |\n",
+    }
     return (
         "## Checklist operativo\n\n"
         "| Tarea | Frecuencia | Objetivo |\n"
@@ -231,12 +282,24 @@ def _checklist_table() -> str:
         "| Mejorar encabezados H2/H3 | Quincenal | Aumentar escaneo del contenido |\n"
         "| Actualizar interlinking | Semanal | Repartir autoridad interna |\n"
         "| Medir clics en CTA | Semanal | Mejorar conversion de lead magnet |\n"
+        + profile_row.get(profile, "")
     )
 
 
-def _faq_block(topic: str) -> str:
+def _faq_block(topic: str, profile: str) -> str:
+    profile_q = {
+        "developers": "Que herramienta de IA integra mejor con repos y CI?",
+        "productivity": "Como priorizo que automatizar primero en mi semana?",
+        "workflow": "Como elijo el mejor flujo para mi operacion actual?",
+        "business": "Como justifico ROI de automatizacion ante direccion?",
+        "timesaving": "Que tareas conviene automatizar para ahorrar tiempo real?",
+        "nocode": "Hasta donde escalan las plataformas sin codigo?",
+        "content": "Como evitar contenido generico al usar IA?",
+        "startup": "Que automatizaciones dan mas impacto con poco presupuesto?",
+        "howto": "Como empiezo sin romper procesos actuales?",
+    }
     faqs = [
-        (f"Que es lo primero que debo hacer para trabajar {topic.lower()}?", "Define una keyword objetivo y una promesa concreta para el lector."),
+        (profile_q.get(profile, f"Que es lo primero que debo hacer para trabajar {topic.lower()}?"), "Define una keyword objetivo y una promesa concreta para el lector."),
         ("Cuanto tarda en notarse una mejora SEO?", "Normalmente entre 4 y 12 semanas, dependiendo del nicho y la competencia."),
         ("Cuantos enlaces internos deberia incluir?", "Como base, incluye al menos tres: dos relacionados y uno pilar."),
         ("Necesito publicar todos los dias?", "No. Es mejor mantener una frecuencia sostenible con calidad consistente."),
@@ -250,7 +313,18 @@ def _faq_block(topic: str) -> str:
     return "\n".join(lines)
 
 
-def _expansion_blocks(topic: str) -> list[str]:
+def _expansion_blocks(topic: str, profile: str) -> list[str]:
+    profile_hint = {
+        "developers": "Incluye pruebas de regresion y control de calidad de codigo en cada iteracion.",
+        "productivity": "Evita automatizar tareas que requieren criterio humano alto en fases tempranas.",
+        "workflow": "Documenta handoffs entre equipos para evitar quiebres del proceso.",
+        "business": "Asocia cada automatizacion a un indicador de costo o ingreso.",
+        "timesaving": "Prioriza tareas de alta frecuencia y bajo valor estrategico.",
+        "nocode": "Define responsables para mantenimiento de escenarios y permisos.",
+        "content": "Combina borrador asistido con edicion humana para mantener voz de marca.",
+        "startup": "Empieza con soluciones reversibles y de baja complejidad.",
+        "howto": "Pilota en un solo proceso antes de escalar al resto de la organizacion.",
+    }
     return [
         (
             "## Errores comunes y como evitarlos\n\n"
@@ -259,7 +333,8 @@ def _expansion_blocks(topic: str) -> list[str]:
             "especifica para el lector y valida que cada seccion contribuya a esa promesa.\n\n"
             "Otro error es depender solo de intuicion. Usa datos minimos: consultas que activan impresiones, "
             "secciones con mayor permanencia y enlaces internos con mejor CTR. Esa informacion evita decisiones "
-            "aleatorias y acelera mejoras de forma consistente."
+            "aleatorias y acelera mejoras de forma consistente. "
+            + profile_hint.get(profile, "")
         ),
         (
             "## Plan de 30 dias para implementarlo\n\n"
@@ -313,6 +388,7 @@ def generate_article(
     canonical: str,
     language: str = "es",
 ) -> dict[str, Any]:
+    profile = _topic_profile(topic, slug)
     title = _localize_topic(topic.strip(), language=language)
     meta_description = (
         f"Guia practica para {title.lower()} con pasos accionables, SEO tecnico, interlinking y monetizacion por afiliados sin costo inicial."
@@ -321,19 +397,19 @@ def generate_article(
         meta_description += " Incluye checklist, FAQ y recursos para ejecutar hoy mismo."
     meta_description = meta_description[:160].strip()
 
-    sections = [_section(title, i) for i in range(1, 7)]
+    sections = [_section(title, i, profile=profile) for i in range(1, 7)]
     body_parts = [
         f"# {title}",
         "",
-        _make_intro(title),
+        _make_intro(title, profile=profile),
         "",
         *sections,
         "",
-        *_expansion_blocks(topic),
+        *_expansion_blocks(topic, profile=profile),
         "",
-        _checklist_table(),
+        _checklist_table(profile=profile),
         "",
-        _faq_block(topic),
+        _faq_block(topic, profile=profile),
         "",
         "## Conclusión",
         "Aplica este marco durante cuatro semanas, registra resultados y optimiza en ciclos cortos. "
