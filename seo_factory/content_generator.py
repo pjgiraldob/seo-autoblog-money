@@ -153,7 +153,81 @@ def _topic_profile(topic: str, slug: str) -> str:
     return "general"
 
 
-def _make_intro(topic: str, profile: str) -> str:
+def _slug_context(slug: str) -> dict[str, Any]:
+    contexts: dict[str, dict[str, Any]] = {
+        "best-ai-automation-tools-for-developers": {
+            "goal": "reducir tiempo de entrega por sprint sin degradar calidad de codigo",
+            "metric": "lead time por pull request y tasa de retrabajo",
+            "risk": "automatizar decisiones que requieren criterio arquitectonico",
+            "case": "un equipo redujo 28% el tiempo de revision al automatizar checks repetitivos",
+        },
+        "best-productivity-tools-powered-by-ai": {
+            "goal": "mejorar foco diario y ejecucion semanal del equipo",
+            "metric": "tareas terminadas por semana y tiempo de contexto",
+            "risk": "saturar al equipo con notificaciones y flujos innecesarios",
+            "case": "una celda de marketing recupero 6 horas semanales al centralizar priorizacion",
+        },
+        "top-workflow-automation-tools-in-2026": {
+            "goal": "estandarizar procesos transversales con menor friccion operativa",
+            "metric": "tiempo de ciclo por proceso y errores por handoff",
+            "risk": "conectar demasiadas herramientas sin gobernanza",
+            "case": "un equipo de ops redujo 35% demoras al orquestar aprobaciones en un solo flujo",
+        },
+        "best-tools-to-automate-business-workflows": {
+            "goal": "aumentar margen operativo eliminando tareas manuales repetitivas",
+            "metric": "costo por proceso y throughput semanal",
+            "risk": "automatizar procesos inestables y escalar ineficiencia",
+            "case": "un negocio B2B recorto 22% costo operativo al automatizar onboarding y soporte inicial",
+        },
+        "ai-tools-that-save-time-at-work": {
+            "goal": "recuperar horas de trabajo para tareas estrategicas",
+            "metric": "horas ahorradas por rol y cumplimiento de objetivos semanales",
+            "risk": "no medir el tiempo real ganado y perder traccion",
+            "case": "un equipo comercial ahorro 9 horas por semana al automatizar seguimiento y reportes",
+        },
+        "top-no-code-automation-platforms": {
+            "goal": "habilitar automatizacion sin dependencia constante de desarrollo",
+            "metric": "flujos activos sin error y tiempo de mantenimiento",
+            "risk": "falta de control de versiones y permisos",
+            "case": "un equipo no tecnico implemento 14 flujos en 30 dias con una sola persona de soporte",
+        },
+        "best-ai-tools-for-content-creation": {
+            "goal": "acelerar produccion sin perder calidad editorial",
+            "metric": "tiempo por pieza y engagement organico",
+            "risk": "publicar borradores genericos sin curaduria humana",
+            "case": "un equipo editorial duplico frecuencia de publicacion manteniendo consistencia de marca",
+        },
+        "best-ai-tools-for-developers": {
+            "goal": "mejorar calidad tecnica y velocidad de iteracion del equipo",
+            "metric": "bugs por release y tiempo de resolucion",
+            "risk": "dependencia excesiva de sugerencias de codigo no verificadas",
+            "case": "un equipo full-stack redujo bugs en produccion al combinar IA + checklist de QA",
+        },
+        "best-ai-tools-for-startups": {
+            "goal": "escalar ejecucion con recursos limitados",
+            "metric": "output semanal por persona y costo mensual de stack",
+            "risk": "acumular herramientas sin retorno claro",
+            "case": "una startup seed aumento 40% output operativo con stack de 3 herramientas bien integradas",
+        },
+        "how-to-automate-repetitive-work-using-ai": {
+            "goal": "pasar de tareas manuales a flujos repetibles y medibles",
+            "metric": "porcentaje de tareas automatizadas y tiempo recuperado",
+            "risk": "automatizar sin criterio de prioridad ni plan de rollback",
+            "case": "un equipo admin elimino 60% de tareas recurrentes en 6 semanas con implementacion gradual",
+        },
+    }
+    return contexts.get(
+        slug,
+        {
+            "goal": "mejorar ejecucion operativa con procesos claros",
+            "metric": "tiempo de ciclo y calidad de salida",
+            "risk": "escalar procesos sin medicion",
+            "case": "un equipo gano eficiencia al estandarizar y medir automatizaciones",
+        },
+    )
+
+
+def _make_intro(topic: str, profile: str, context: dict[str, Any]) -> str:
     openers = {
         "developers": "Para equipos de desarrollo, automatizar tareas repetitivas libera horas de foco tecnico y reduce retrabajo en sprint.",
         "productivity": "En entornos con alta carga operativa, la productividad mejora cuando combinas procesos simples con asistentes de IA bien definidos.",
@@ -170,9 +244,9 @@ def _make_intro(topic: str, profile: str) -> str:
         f"{openers.get(profile, openers['general'])} "
         f"{topic} es una oportunidad real para captar trafico organico con intencion de busqueda clara. "
         "En esta guia te muestro un proceso completo para investigar, priorizar y publicar sin depender de herramientas pagas.\n\n"
-        "La idea central es simple: combinar SEO tecnico, contenido util y medicion basica para iterar cada semana. "
+        f"La idea central es simple: combinar SEO tecnico, contenido util y medicion basica para iterar cada semana. El objetivo en este caso es {context['goal']}. "
         "Si aplicas este flujo con consistencia, puedes crecer en visibilidad de forma sostenible.\n\n"
-        "Tambien veremos como enlazar internamente, donde colocar llamadas a la accion y como preparar activos "
+        f"Tambien veremos como enlazar internamente, donde colocar llamadas a la accion y como preparar activos "
         "que ayuden tanto al lector como al rendimiento del sitio."
     )
 
@@ -231,18 +305,48 @@ def _build_sections(topic: str, slug: str, profile: str) -> list[str]:
     bank = _section_banks(profile)
     if len(bank) < 6:
         return []
+    context = _slug_context(slug)
     start = zlib.crc32(slug.encode("utf-8")) % len(bank)
+    decision_templates = [
+        "Decision tactica: define un baseline de {metric} antes de automatizar para medir impacto real.",
+        "Decision tactica: prioriza cambios que mejoren {metric} en las primeras dos semanas.",
+        "Decision tactica: evita ampliar alcance hasta validar una mejora estable en {metric}.",
+        "Decision tactica: conecta esta mejora con una metrica de negocio ligada a {metric}.",
+        "Decision tactica: revisa semanalmente {metric} y elimina pasos sin retorno.",
+        "Decision tactica: documenta aprendizaje y reusa el patron cuando veas avance en {metric}.",
+    ]
+    case_templates = [
+        "Caso practico: {case}.",
+        "Ejemplo de campo: {case} y luego estandarizo su checklist para escalarlo.",
+        "Aplicacion real: {case} porque definio responsables y alertas desde el inicio.",
+        "Resultado observado: {case} despues de alinear tooling y proceso.",
+        "Leccion operativa: {case} al medir cada iteracion en una ventana corta.",
+        "Patron repetible: {case} cuando se combina automatizacion con gobernanza.",
+    ]
+    risk_templates = [
+        "Riesgo a vigilar: {risk}.",
+        "Riesgo habitual: {risk}; mitiga con reglas de aprobacion y monitoreo.",
+        "Punto critico: {risk}; define rollback antes de escalar.",
+        "Riesgo operativo: {risk}; asigna un owner por flujo.",
+        "Falla frecuente: {risk}; usa auditoria semanal para detectarlo temprano.",
+        "Riesgo de escala: {risk}; evita crecer sin evidencia de estabilidad.",
+    ]
     sections: list[str] = []
     for idx in range(6):
         title, paragraph, actions = bank[(start + idx) % len(bank)]
+        decision = decision_templates[idx % len(decision_templates)].format(metric=context["metric"])
+        case_line = case_templates[idx % len(case_templates)].format(case=context["case"])
+        risk_line = risk_templates[idx % len(risk_templates)].format(risk=context["risk"])
         sections.append(
             f"## Bloque {idx + 1}: {title}\n\n"
             f"{paragraph}\n\n"
-            f"Aplicado a {topic.lower()}, este bloque ayuda a pasar de ideas generales a ejecucion concreta.\n\n"
+            f"{decision}\n\n"
+            f"{case_line}\n\n"
             "Checklist de ejecucion:\n"
             f"- {actions[0]}\n"
             f"- {actions[1]}\n"
-            f"- {actions[2]}"
+            f"- {actions[2]}\n\n"
+            f"{risk_line}"
         )
     return sections
 
@@ -374,6 +478,7 @@ def generate_article(
     language: str = "es",
 ) -> dict[str, Any]:
     profile = _topic_profile(topic, slug)
+    context = _slug_context(slug)
     title = _localize_topic(topic.strip(), language=language)
     meta_description = (
         f"Guia practica para {title.lower()} con pasos accionables, SEO tecnico, interlinking y monetizacion por afiliados sin costo inicial."
@@ -386,7 +491,7 @@ def generate_article(
     body_parts = [
         f"# {title}",
         "",
-        _make_intro(title, profile=profile),
+        _make_intro(title, profile=profile, context=context),
         "",
         *sections,
         "",
