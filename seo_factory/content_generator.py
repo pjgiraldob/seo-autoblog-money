@@ -156,60 +156,70 @@ def _topic_profile(topic: str, slug: str) -> str:
 def _slug_context(slug: str) -> dict[str, Any]:
     contexts: dict[str, dict[str, Any]] = {
         "best-ai-automation-tools-for-developers": {
+            "title": "Automatizacion para developers: stack practico para entregar mas rapido",
             "goal": "reducir tiempo de entrega por sprint sin degradar calidad de codigo",
             "metric": "lead time por pull request y tasa de retrabajo",
             "risk": "automatizar decisiones que requieren criterio arquitectonico",
             "case": "un equipo redujo 28% el tiempo de revision al automatizar checks repetitivos",
         },
         "best-productivity-tools-powered-by-ai": {
+            "title": "Como diseñar un sistema de productividad con IA que si se sostenga",
             "goal": "mejorar foco diario y ejecucion semanal del equipo",
             "metric": "tareas terminadas por semana y tiempo de contexto",
             "risk": "saturar al equipo con notificaciones y flujos innecesarios",
             "case": "una celda de marketing recupero 6 horas semanales al centralizar priorizacion",
         },
         "top-workflow-automation-tools-in-2026": {
+            "title": "Automatizacion de workflows en 2026: que cambio y que conviene hoy",
             "goal": "estandarizar procesos transversales con menor friccion operativa",
             "metric": "tiempo de ciclo por proceso y errores por handoff",
             "risk": "conectar demasiadas herramientas sin gobernanza",
             "case": "un equipo de ops redujo 35% demoras al orquestar aprobaciones en un solo flujo",
         },
         "best-tools-to-automate-business-workflows": {
+            "title": "De procesos manuales a operacion escalable: guia de automatizacion de negocio",
             "goal": "aumentar margen operativo eliminando tareas manuales repetitivas",
             "metric": "costo por proceso y throughput semanal",
             "risk": "automatizar procesos inestables y escalar ineficiencia",
             "case": "un negocio B2B recorto 22% costo operativo al automatizar onboarding y soporte inicial",
         },
         "ai-tools-that-save-time-at-work": {
+            "title": "Recupera 8 horas semanales: automatizaciones con IA para trabajo diario",
             "goal": "recuperar horas de trabajo para tareas estrategicas",
             "metric": "horas ahorradas por rol y cumplimiento de objetivos semanales",
             "risk": "no medir el tiempo real ganado y perder traccion",
             "case": "un equipo comercial ahorro 9 horas por semana al automatizar seguimiento y reportes",
         },
         "top-no-code-automation-platforms": {
+            "title": "No-code sin humo: plataformas para automatizar sin depender de IT",
             "goal": "habilitar automatizacion sin dependencia constante de desarrollo",
             "metric": "flujos activos sin error y tiempo de mantenimiento",
             "risk": "falta de control de versiones y permisos",
             "case": "un equipo no tecnico implemento 14 flujos en 30 dias con una sola persona de soporte",
         },
         "best-ai-tools-for-content-creation": {
+            "title": "Pipeline editorial con IA: de brief a publicacion en menos tiempo",
             "goal": "acelerar produccion sin perder calidad editorial",
             "metric": "tiempo por pieza y engagement organico",
             "risk": "publicar borradores genericos sin curaduria humana",
             "case": "un equipo editorial duplico frecuencia de publicacion manteniendo consistencia de marca",
         },
         "best-ai-tools-for-developers": {
+            "title": "Copilotos de codigo en produccion: como elegirlos y gobernarlos",
             "goal": "mejorar calidad tecnica y velocidad de iteracion del equipo",
             "metric": "bugs por release y tiempo de resolucion",
             "risk": "dependencia excesiva de sugerencias de codigo no verificadas",
             "case": "un equipo full-stack redujo bugs en produccion al combinar IA + checklist de QA",
         },
         "best-ai-tools-for-startups": {
+            "title": "Stack de IA para startups con presupuesto limitado",
             "goal": "escalar ejecucion con recursos limitados",
             "metric": "output semanal por persona y costo mensual de stack",
             "risk": "acumular herramientas sin retorno claro",
             "case": "una startup seed aumento 40% output operativo con stack de 3 herramientas bien integradas",
         },
         "how-to-automate-repetitive-work-using-ai": {
+            "title": "Framework de 30 dias para eliminar trabajo repetitivo con IA",
             "goal": "pasar de tareas manuales a flujos repetibles y medibles",
             "metric": "porcentaje de tareas automatizadas y tiempo recuperado",
             "risk": "automatizar sin criterio de prioridad ni plan de rollback",
@@ -480,6 +490,8 @@ def generate_article(
     profile = _topic_profile(topic, slug)
     context = _slug_context(slug)
     title = _localize_topic(topic.strip(), language=language)
+    if language.lower().startswith("es") and context.get("title"):
+        title = str(context["title"])
     meta_description = (
         f"Guia practica para {title.lower()} con pasos accionables, SEO tecnico, interlinking y monetizacion por afiliados sin costo inicial."
     )
